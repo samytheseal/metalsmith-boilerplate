@@ -1,0 +1,159 @@
+/* variables */
+
+
+// layout
+// --------------------------------------------------
+
+// custom media sizes
+$screen-sm-min: 768px;
+$screen-md-min: 1024px;
+$screen-lg-min: 1280px;
+$screen-xs-max: $screen-sm-min - 1;
+$screen-sm-max: $screen-md-min - 1;
+$screen-md-max: $screen-lg-min - 1;
+
+// sizes
+$max-width: 2560px;
+$header-height: 64px;
+$header-height-large: 128px;
+$footer-height: 128px;
+
+// gutter
+$gutter-base: 12;
+@function gutter-size($gutter-multiplier) {
+	@return ($gutter-base * $gutter-multiplier) * 1px;
+}
+
+// z-index
+$zindex: (
+	penthouse: 111111,
+	level5: 11111,
+	level4: 1111,
+	level3: 111,
+	level2: 11,
+	level1: 1,
+	ground: 0,
+	basement: -1,
+	hell: -111111
+);
+@function zindex($key) {
+	@if not map-has-key($zindex, $key) {
+		@warn "zindex '#{$key}' not found.";
+	}
+	@return map-get($zindex, $key);
+} // z-index: zindex(level1);
+
+
+// colours
+// --------------------------------------------------
+
+// blacks
+$black: #000;
+$black-light: #111;
+
+// whites
+$white: #fff;
+$white-dark: #f7f7f7;
+
+// greys
+$grey-darkest: #222;
+$grey-darker: #444;
+$grey-dark: #666;
+$grey-mid: #888;
+$grey-light: #aaa;
+$grey-lighter: #ccc;
+$grey-lightest: #eee;
+
+// brand
+$brand-primary: #00b9dd;
+$brand-dark: darken($brand-primary, 10%);
+$brand-light: lighten($brand-primary, 10%);
+
+// contextual
+$brand-success: #67bd4a;
+$brand-info: #5bc0de;
+$brand-warning: #ffd204;
+$brand-danger: #e51b24;
+
+// type
+$text-color: #333;
+$text-color-light: lighten($text-color, 15%);
+$text-color-dark: darken($text-color, 15%);
+$headings-color: $brand-primary;
+$link-color: $black;
+$link-hover-color: $text-color;
+
+// 3rd party
+$colour-AddThis: #ff5c3e;
+$colour-Facebook: #3b5998;
+$colour-Flickr: #ff0084;
+$colour-Google: #cf4332;
+$colour-Instagram: #3f729b;
+$colour-Linkedin: #0077b5;
+$colour-Pinterest: #cc2027;
+$colour-Slack: #3aaf85;
+$colour-Skype: #00aff0;
+$colour-Twitter: #55acee;
+$colour-Vimeo: #1ab7ea;
+$colour-Yahoo: #410093;
+$colour-Youtube: #ae2b25;
+
+
+// typography
+// --------------------------------------------------
+
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
+$font-family-light: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
+$headings-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial", sans-serif;
+$brand-font-family: $headings-font-family;
+
+// sizing
+$font-size-base: 1rem;
+$text-size-small: 87.5%;
+$text-size-xsmall: 75%;
+$text-size-large: 112.5%;
+$text-size-xlarge: 125%;
+
+// line height
+$line-height-small: 1.2;
+$line-height-base: 1.5;
+$line-height-headings: 1.2;
+
+// text font weight
+$text-weight-thin: 100;
+$text-weight-extra-light: 200;
+$text-weight-light: 300;
+$text-weight-normal: normal;
+$text-weight-medium: 500;
+$text-weight-semi-bold: 600;
+$text-weight-bold: bold;
+$text-weight-extra-bold: 800;
+$text-weight-black: 900;
+
+// headings font weight
+$headings-weight-thin: 100;
+$headings-weight-extra-light: 200;
+$headings-weight-light: 300;
+$headings-weight-normal: normal;
+$headings-weight-medium: 500;
+$headings-weight-semi-bold: 600;
+$headings-weight-bold: bold;
+$headings-weight-extra-bold: 800;
+$headings-weight-black: 900;
+
+
+// paths
+// --------------------------------------------------
+
+$image-path: "/assets/images"; // background: url("#{$image-path}/pngTrans.png") no-repeat;
+$image-cache-bust: "?v=#{random(9000) + 999}"; // background: url("#{$image-path}/pngTrans.png#{$image-cache-bust}") no-repeat;
+$font-path: "/assets/fonts";
+
+
+// timings
+// --------------------------------------------------
+
+$timing-base: 0.1;
+@function timing($timing-multiplier) {
+	@return ($timing-base * $timing-multiplier) + s;
+} // timing(1);

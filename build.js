@@ -33,7 +33,7 @@ metalsmith(__dirname)
             hosttitle: "Learn more about Netlify"
         }
     })
-    .source('./src')
+    .source('./src/content')
     .destination('./dist')
     .clean(true)
     .use(drafts())
@@ -52,12 +52,12 @@ metalsmith(__dirname)
     .use(permalinks())
     .use(layouts({
         engine: 'handlebars',
-        directory: 'layouts',
+        directory: 'src/views',
         default: 'default.hbs',
-        partials: 'layouts/partials'
+        partials: 'src/views/partials'
     }))
     .use(sitemap({
-        hostname: "https://andreasvirkus.me"
+        hostname: "https://www.test.com"
     }))
     .build(function (err) {
         if (err) throw err;

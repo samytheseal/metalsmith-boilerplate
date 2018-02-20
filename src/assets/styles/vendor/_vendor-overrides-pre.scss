@@ -1,0 +1,24 @@
+/* variable overrides */
+
+
+/*
+ * overrides for vendor variables
+ *
+ * for this to work, variables defined in vendors scss' need to have !default on the end of them
+ * other overrides that aren't variables should go into [_overrides.scss]
+ *
+ */
+
+
+// Bootstrap
+// --------------------------------------------------
+
+// Bootstrap containers
+// $container-md: ($screen-md-min - 30px);
+// $container-lg: ($screen-lg-min - 30px);
+
+// Bootstrap hamburger menu
+// $grid-float-breakpoint: $screen-md-min;
+
+// Bootstrap general
+// $navbar-height: 80px;
