@@ -8,7 +8,7 @@
     "prestart": "npm install",
     "start": "node . && npm run postbuild",
     "postbuild": "npm run copy-assets && npm run minify",
-    "copy-assets": "cp -r src/assets dist/ && cp src/robots.txt dist/ && cp src/manifest.json dist/ && cp src/service-worker.js dist/",
+    "copy-assets": "xcopy /S /I /E src\\assets dist\\assets && copy src\\robots.txt dist && copy src\\manifest.json dist && copy src\\service-worker.js dist",
     "minify": "npm run minify:js && npm run minify:css",
     "minify:js": "uglifyjs ./dist/assets/js/*.js -c -m -o ./dist/assets/js/script.min.js",
     "minify:css": "cleancss --level 2 -o ./dist/assets/css/styles.min.css ./dist/assets/css/*.css && postcss ./dist/assets/css/styles.min.css --use autoprefixer -o ./dist/assets/css/styles.min.css"
