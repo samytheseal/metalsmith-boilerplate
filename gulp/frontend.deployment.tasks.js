@@ -170,7 +170,7 @@
 			return gulp
 				.src(pathvars.paths.viewsStatic.src)
 				.pipe($.dataJson())
-				.pipe($.hb({bustCache: true})
+				.pipe($.hb()
 					.data(require('../' + pathvars.paths.viewsStatic.srcFolder + 'data/components.config.js'))
 					.data(require('../' + pathvars.paths.viewsStatic.srcFolder + 'data/data.config.js'))
 					.data(require('../' + pathvars.paths.viewsStatic.srcFolder + 'data/route.config.js'))

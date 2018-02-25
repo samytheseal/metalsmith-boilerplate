@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		{{>"global/app-head"}}
+	</head>
+
+	<body id="{{route.id}}">
+
+		<header id="app-header">
+			<section class="container">
+				{{>"global/app-header"}}
+			</section>
+		</header>
+
+		<main id="app-main" role="main">
+			<article id="app-article">
+				{{#block "app-content"}}
+				{{/block}}
+			</article>
+		</main>
+
+		<footer id="app-footer">
+			<section class="container">
+				{{>"global/app-footer"}}
+			</section>
+		</footer>
+
+		<section id="app-container">
+			{{>"global/app-browser-upgrade"}}
+			{{>"global/app-scripts"}}
+		</section>
+
+	</body>
+
+</html>

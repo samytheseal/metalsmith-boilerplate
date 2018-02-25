@@ -1,0 +1,17 @@
+{{#extend "layout/component"}}
+	{{#content "component-content"}}
+
+		{{!-- variants --}}
+		{{#if variant}}
+
+			{{#if test2}}
+				<p>{{name}} variant</p>
+			{{/if}}
+
+		{{!-- default --}}
+		{{else}}
+			<p>{{name}} no variant</p>
+		{{/if}}
+
+	{{/content}}
+{{/extend}}

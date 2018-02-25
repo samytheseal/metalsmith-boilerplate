@@ -1,0 +1,36 @@
+<noscript class="noscript">
+	<p>Please <a href="http://enable-javascript.com/" target="_blank" rel="noopener">enable JavaScript</a> to browse this site.</p>
+</noscript>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="//unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+<script src="//unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.min.js"></script>
+<!-- bundles -->
+<script defer>
+	// js bundle
+	(function ajaxScripts(retries) {
+		jQuery.ajax({
+			async: true,
+			cache: false,
+			url: '/assets/scripts/scriptsBundle.result.json'
+		})
+		.done(function(data) {
+			if (data !== undefined && data !== null) {
+				$.each(data, function(i, item) {
+					var script = document.createElement('script');
+					script.src = $(item.scripts).attr('src');
+					document.getElementById('app-container').appendChild(script);
+				});
+				document.body.className += ' ' + 'jsLoaded';
+			}
+		})
+		.fail(function() {
+			console.log('ajax scripts fail: ' + retries);
+			if (retries > 0) {
+				setTimeout(function() {
+					ajaxScripts(--retries);
+				},5000);
+			}
+		});
+	})(3);
+</script>
+<script defer src="//use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

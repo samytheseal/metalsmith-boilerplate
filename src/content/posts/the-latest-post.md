@@ -2,7 +2,7 @@
 title: The latest post
 layout: post.hbs
 description: With all the newest information on the market!
-date: 05-27-2017
+date: 2017-05-27
 ---
 
 Tacos street art ethical, literally kogi cray four loko bushwick actually leggings cred. Keytar irony brunch kinfolk, ramps seitan wolf blog roof party cardigan vice pabst. Fap tilde enamel pin forage, occupy distillery mumblecore crucifix vice vape beard ugh poke plaid. Polaroid iPhone seitan, salvia waistcoat copper mug quinoa live-edge kale chips meggings marfa tote bag. Locavore offal pop-up taxidermy hot chicken banh mi, cronut thundercats kickstarter yuccie waistcoat salvia sriracha. Lumbersexual master cleanse chambray cornhole PBR&B brunch. Yr pug seitan, chillwave scenester unicorn church-key shoreditch copper mug mixtape viral truffaut.

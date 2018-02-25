@@ -1,0 +1,17 @@
+{{#extend "template/app-shell" page=data.app.view.pageHome route=route.app.view.pageHome}}
+	{{#content "app-content"}}
+
+		<div>
+
+			<h1>{{page.conent.title}}</h1>
+
+			{{>"components/test" component.test}}
+			{{>"components/test" component.test.variants.test2}}
+			{{>"components/card"}}
+
+			{{{ contents }}}
+
+		</div>
+
+	{{/content}}
+{{/extend}}
