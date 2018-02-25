@@ -72,7 +72,6 @@
     "gulp-sass": "~3.1.0",
     "gulp-sourcemaps": "~2.6.4",
     "gulp-stylelint": "~6.0.0",
-    "gulpsmith": "^0.6.0",
     "handlebars-helpers": "~0.10.0",
     "handlebars-layouts": "~3.1.4",
     "inquirer": "~5.1.0",
