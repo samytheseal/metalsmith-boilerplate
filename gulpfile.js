@@ -9,7 +9,7 @@
 	const gulp = require('gulp');
 	const $ = require('gulp-load-plugins') ({
 		pattern: '*',
-		scope: 'dependencies'
+		scope: ['dependencies', 'devDependencies']
 	});
 
 	// subtasks

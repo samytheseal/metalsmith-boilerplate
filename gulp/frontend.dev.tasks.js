@@ -110,20 +110,11 @@
 				.pipe(gulp.dest(pathvars.paths.styles.dist))
 		})
 
-		// inline critical static css
-		gulp.task('f-build:scss-inline', () => {
-			return gulp
-				.src(pathvars.paths.viewsStatic.dist + '*.html')
-				.pipe($.inlineSource())
-				.pipe(gulp.dest(pathvars.paths.viewsStatic.dist))
-		})
-
 		// all styles tasks
 		gulp.task('f-styles', callback => {
 			$.runSequence(
 				'f-scss:lint',
 				'f-scss:build',
-				// 'f-build:scss-inline',
 				callback
 			)
 		})
@@ -179,8 +170,8 @@
 				reloadDebounce: 2000,
 				reloadDelay: 1000,
 				reloadOnRestart: false,
-				server: 'dist/website',
-				startPath: '/app.html'
+				server: 'dist',
+				startPath: '/index.html'
 			})
 			// watch
 			gulp
@@ -190,59 +181,79 @@
 				.watch(pathvars.paths.styles.src, ['f-styles'])
 				.on('change', $.browserSync.reload)
 			gulp
-				.watch( pathvars.paths.viewsStatic.srcFolder + '**/*', ['f-views-static'])
+				.watch(pathvars.paths.viewsStatic.srcFolder + '**/*', ['f-views-static'])
 				.on('change', $.browserSync.reload)
 		})
+
 
 		// ---------------------------------------------------------------------
 		// | views                                                             |
 		// ---------------------------------------------------------------------
 
-		// all cshtml views tasks
-		gulp.task('f-views-cshtml', callback => {
-			$.runSequence('f-cshtml', callback)
-		})
+		// handlebars helpers
+		$.handlebars.registerHelper($.handlebarsHelpers($.handlebars));
+		$.handlebars.registerHelper($.handlebarsLayouts($.handlebars));
+		
+		$.handlebars.registerHelper('is', function (value, test, options) {
+			if (value === test) {
+				return options.fn(this);
+			} else {
+				return options.inverse(this);
+			}
+		});
+		$.handlebars.registerHelper('date', function (date) {
+			return $.moment(date, "MM-DD-YYYY").format('Do MMM \'YY');
+		});
 
-		// static html & handlebars
-		gulp.task('f-handlebars', () => {
-			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + 'data/components.config.js');
-			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + 'data/data.config.js');
-			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + 'data/route.config.js');
-			return gulp
-				.src(pathvars.paths.viewsStatic.src)
-				.pipe($.dataJson())
-				.pipe($.hb()
-						.data(require('../' + pathvars.paths.viewsStatic.srcFolder + 'data/components.config.js'))
-						.data(require('../' + pathvars.paths.viewsStatic.srcFolder + 'data/data.config.js'))
-						.data(require('../' + pathvars.paths.viewsStatic.srcFolder + 'data/route.config.js'))
-						.helpers(require('handlebars-helpers'))
-						.helpers(require('handlebars-layouts'))
-						.helpers({ partial: partial => {
-								return partial
-							}, repeat: (n, block) => {
-								var accum = ''
-								for (var i = 0; i < n; ++i) {
-									block.data.index = i
-									block.data.first = i === 0
-									block.data.last = i === n - 1
-									accum += block.fn(this)
-								}
-								return accum
-							} })
-						.partials(pathvars.paths.viewsStatic.srcFolder + 'partials/**/*.hbs'))
-				.pipe($.cached('handlebars'))
-				.pipe(gulp.dest(pathvars.paths.viewsStatic.dist)
-					.on('end', () => {
-					$.del(
-						pathvars.paths.viewsStatic.dist +
-							'partials/'
-					)
-				}))
+		// metalsmith handlebars
+		gulp.task('f-metalsmith', () => {
+			$.metalsmith(__dirname)
+			.metadata({
+				site: {
+					name: 'My site',
+					description: "My super sweet Metalsmith site on Netlify.",
+					generatorname: "Metalsmith",
+					generatorurl: "http://metalsmith.io/",
+					generatortitle: "Check out Metalsmith!",
+					hostname: "Netlify",
+					hosturl: "https://netlify.com/",
+					hosttitle: "Learn more about Netlify"
+				}
+			})
+			.source('../src/content')
+			.destination('../dist')
+			.clean(false)
+			.use($.metalsmithDrafts())
+			.use($.metalsmithCollections({
+				posts: {
+					pattern: 'posts/*.md',
+					sortBy: 'date',
+					reverse: true
+				},
+				pages: {
+					pattern: '*.md',
+					sortBy: 'menu-order'
+				}
+			}))
+			.use($.metalsmithMarkdown())
+			.use($.metalsmithPermalinks())
+			.use($.metalsmithLayouts({
+				engine: 'handlebars',
+				directory: '../src/views',
+				default: 'app-default.hbs',
+				partials: '../src/views/partials'
+			}))
+			.use($.metalsmithSitemap({
+				hostname: "https://www.test.com"
+			}))
+			.build(function (err) {
+				if (err) throw err;
+			});
 		})
 
 		// all static views tasks
 		gulp.task('f-views-static', callback => {
-			$.runSequence('f-handlebars', callback)
+			$.runSequence('f-metalsmith', callback)
 		})
 	}
 })()

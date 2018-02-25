@@ -1,7 +1,7 @@
 // project paths
 const basePaths = {
 	src: 'src/',
-	dist: 'dist/website/'
+	dist: 'dist/'
 }
 
 // file paths
@@ -28,7 +28,7 @@ const paths = {
 	},
 	viewsStatic: {
 		srcFolder: basePaths.src + 'views/',
-		src: basePaths.src + 'views/**/*.{hbs,html}',
+		src: basePaths.src + 'views/**/*.hbs',
 		dist: basePaths.dist
 	}
 }

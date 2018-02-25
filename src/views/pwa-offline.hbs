@@ -1,0 +1,14 @@
+{{#extend "template/pwa-shell"}}
+	{{#content "pwa-content"}}
+
+		<div>
+
+			<h1>{{page.conent.title}}</h1>
+
+			{{>"components/test" component.test}}
+			{{>"components/test" component.test.variants.test2}}
+
+		</div>
+
+	{{/content}}
+{{/extend}}

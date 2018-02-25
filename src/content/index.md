@@ -1,6 +1,7 @@
 ---
-title: Home
-layout: index.hbs
+title: home
+description: test
+layout: app-default.hbs
 menu-order: 1
 ---
 
