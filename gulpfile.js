@@ -20,18 +20,13 @@
 	// | default tasks                                                     |
 	// ---------------------------------------------------------------------
 
-	// build frontend
-	gulp.task('f-build', ['f-build:clean'], (done) => {
-		$.runSequence(
-			'f-build:views',
-			'f-build:scripts',
-			'f-build:styles',
-			'f-build:assets',
-		done);
-	});
-
 	// default
-	gulp.task('default', ['f-build']);
+	gulp.task('default', (callback) => {
+		process.env.NODE_ENV = 'production';
+		$.runSequence(
+			'f-build',
+		callback);
+	})
 
 
 }());

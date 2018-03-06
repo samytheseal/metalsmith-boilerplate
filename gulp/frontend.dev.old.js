@@ -149,9 +149,11 @@
 				])
 				.then(answers => {
 					if (answers.start === 'Build frontend for deployment.') {
+						process.env.NODE_ENV = 'production';
 						$.runSequence('f-build')
 					}
 					if (answers.start === 'Frontend Dev work.') {
+						process.env.NODE_ENV = 'development';
 						$.runSequence(
 							'f-cache',
 							'f-build',
