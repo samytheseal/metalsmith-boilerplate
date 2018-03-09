@@ -29,21 +29,21 @@
     "url": "https://github.com/andreasvirkus/metalsmith-boilerplate/issues"
   },
   "dependencies": {
-    "autoprefixer": "^7.1.1",
-    "clean-css-cli": "^4.1.3",
-    "handlebars": "^4.0.8",
-    "metalsmith": "^2.3.0",
-    "metalsmith-autoprefixer": "^1.1.1",
-    "metalsmith-collections": "^0.9.0",
+    "autoprefixer": "~7.1.1",
+    "clean-css-cli": "~4.1.3",
+    "handlebars": "~4.0.8",
+    "metalsmith": "~2.3.0",
+    "metalsmith-autoprefixer": "~1.1.1",
+    "metalsmith-collections": "~0.9.0",
     "metalsmith-drafts": "0.0.1",
-    "metalsmith-layouts": "^1.8.1",
-    "metalsmith-markdown": "^0.2.1",
-    "metalsmith-navigation": "^0.2.9",
-    "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-sitemap": "^1.2.0",
-    "moment": "^2.18.1",
-    "postcss-cli": "^4.0.0",
-    "uglify-js": "^3.0.10"
+    "metalsmith-layouts": "~1.8.1",
+    "metalsmith-markdown": "~0.2.1",
+    "metalsmith-navigation": "~0.2.9",
+    "metalsmith-permalinks": "~0.5.0",
+    "metalsmith-sitemap": "~1.2.0",
+    "moment": "~2.18.1",
+    "postcss-cli": "~4.0.0",
+    "uglify-js": "~3.0.10"
   },
   "devDependencies": {
     "autoprefixer": "~7.2.5",
@@ -57,7 +57,7 @@
     "gulp-debug": "~3.2.0",
     "gulp-eslint": "~4.0.1",
     "gulp-foreach": "~0.1.0",
-    "gulp-if": "^2.0.2",
+    "gulp-if": "~2.0.2",
     "gulp-imagemin": "~4.1.0",
     "gulp-inline-source": "~3.1.0",
     "gulp-load-plugins": "~1.5.0",
@@ -73,6 +73,6 @@
     "inquirer": "~5.1.0",
     "optional": "~0.1.4",
     "run-sequence": "~2.2.1",
-    "sw-precache": "^5.2.1"
+    "sw-precache": "~5.2.1"
   }
 }

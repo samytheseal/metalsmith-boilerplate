@@ -234,20 +234,23 @@
 			return $.moment(date, "MM-DD-YYYY").format('Do MMM \'YY');
 		});
 
+		var test = require('../src/views/data/test.json');
+
 		// static
 		gulp.task('f-views:static', () => {
 			$.metalsmith(__dirname)
 			.metadata({
-				site: {
-					name: 'My site',
-					description: "My super sweet Metalsmith site on Netlify.",
-					generatorname: "Metalsmith",
-					generatorurl: "http://metalsmith.io/",
-					generatortitle: "Check out Metalsmith!",
-					hostname: "Netlify",
-					hosturl: "https://netlify.com/",
-					hosttitle: "Learn more about Netlify"
-				}
+				// site: {
+				// 	name: 'My site',
+				// 	description: "My super sweet Metalsmith site on Netlify.",
+				// 	generatorname: "Metalsmith",
+				// 	generatorurl: "http://metalsmith.io/",
+				// 	generatortitle: "Check out Metalsmith!",
+				// 	hostname: "Netlify",
+				// 	hosturl: "https://netlify.com/",
+				// 	hosttitle: "Learn more about Netlify"
+				// }
+				test: test
 			})
 			.source('../src/content')
 			.destination('../dist')
@@ -393,8 +396,8 @@
 				reloadDebounce: 2000,
 				reloadDelay: 1500,
 				reloadOnRestart: false,
-				server: 'dist/website/_build',
-				startPath: '/app.html'
+				server: 'dist',
+				startPath: '/index.html'
 			});
 			// watch
 			gulp.watch(pathvars.paths.scripts.src, ['f-scripts']).on('change', $.browserSync.reload);
