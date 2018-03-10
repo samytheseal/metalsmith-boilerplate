@@ -254,7 +254,8 @@
 				// }
 				test: require('../src/views/data/test.json'),
 				components: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json'),
-				data: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json')
+				data: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json'),
+				faker: require('faker')
 			})
 			.source('../src/content')
 			.destination('../dist')
