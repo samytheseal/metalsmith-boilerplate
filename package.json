@@ -48,6 +48,7 @@
   "devDependencies": {
     "autoprefixer": "~7.2.5",
     "browser-sync": "~2.23.5",
+    "decache": "~4.4.0",
     "del": "~3.0.0",
     "eslint-config-prettier": "~2.9.0",
     "gulp": "~3.9.1",
@@ -74,5 +75,8 @@
     "optional": "~0.1.4",
     "run-sequence": "~2.2.1",
     "sw-precache": "~5.2.1"
+  },
+  "optionalDependencies": {
+    "stylelint": "~9.1.1"
   }
 }

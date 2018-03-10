@@ -43,7 +43,7 @@
 		// progressive web app service worker
 		gulp.task('f-assets:service-worker', function(callback) {
 			$.swPrecache.write(
-				pathvars.basePaths.src + '/_build/service-worker.js',
+				pathvars.basePaths.src + '/service-worker.js',
 				{
 					staticFileGlobs: [
 						pathvars.basePaths.dist + '/assets/scripts/switch/components/*.js',
@@ -234,10 +234,12 @@
 			return $.moment(date, "MM-DD-YYYY").format('Do MMM \'YY');
 		});
 
-		var test = require('../src/views/data/test.json');
+		//var test = require('../src/views/data/test.json');
 
 		// static
 		gulp.task('f-views:static', () => {
+			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json');
+			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json');
 			$.metalsmith(__dirname)
 			.metadata({
 				// site: {
@@ -250,7 +252,9 @@
 				// 	hosturl: "https://netlify.com/",
 				// 	hosttitle: "Learn more about Netlify"
 				// }
-				test: test
+				test: require('../src/views/data/test.json'),
+				components: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json'),
+				data: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json')
 			})
 			.source('../src/content')
 			.destination('../dist')

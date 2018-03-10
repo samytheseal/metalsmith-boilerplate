@@ -5,13 +5,13 @@
 
 			<h1>{{page.conent.title}}</h1>
 
-			{{>"components/test" component.test}}
-			{{>"components/test" component.test.variants.test2}}
+			{{>"components/test" components.component.test content=data.data.app.global.meta}}
+			{{>"components/test" components.component.test.variants.test1test}}
 			{{>"components/card"}}
 
 			{{{ contents }}}
 
-			{{log test.menu.id}}
+			{{data.data.app.global.meta.description}}
 
 		</div>
 

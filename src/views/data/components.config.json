@@ -1,0 +1,19 @@
+{
+    "component": {
+        "test": {
+            "class": {
+                "css": "test-class"
+            },
+            "variants": {
+                "test1test": {
+                    "class": {
+                        "css": "test1-class"
+                    },
+                    "name": "test1test",
+                    "test1test": true,
+                    "variant": true
+                }
+            }
+        }
+    }
+}
