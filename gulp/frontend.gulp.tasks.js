@@ -242,17 +242,6 @@
 			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json');
 			$.metalsmith(__dirname)
 			.metadata({
-				// site: {
-				// 	name: 'My site',
-				// 	description: "My super sweet Metalsmith site on Netlify.",
-				// 	generatorname: "Metalsmith",
-				// 	generatorurl: "http://metalsmith.io/",
-				// 	generatortitle: "Check out Metalsmith!",
-				// 	hostname: "Netlify",
-				// 	hosturl: "https://netlify.com/",
-				// 	hosttitle: "Learn more about Netlify"
-				// }
-				test: require('../src/views/data/test.json'),
 				components: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json'),
 				data: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json'),
 				faker: require('faker')

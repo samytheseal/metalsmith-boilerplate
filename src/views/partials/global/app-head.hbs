@@ -3,14 +3,14 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="telephone=no" name="format-detection">
 {{#if title}}
-<title>{{capitalizeAll title}} | {{capitalizeAll data.data.app.global.meta.title}}</title>
+<title>{{capitalizeAll title}} | {{capitalizeAll data.app.global.meta.title}}</title>
 {{else}}
-<title>{{capitalizeAll site.title}}</title>
+<title>{{capitalizeAll data.app.global.meta.title}}</title>
 {{/if}}
 {{#if description}}
 <meta content="{{description}}" name="description">
 {{else}}
-<meta content="{{data.data.app.global.meta.description}}" name="description">
+<meta content="{{data.app.global.meta.description}}" name="description">
 {{/if}}
 {{>"global/pwa-meta"}}
 <link href="/assets/images/favicon/apple-touch-icon.png" rel="apple-touch-icon">

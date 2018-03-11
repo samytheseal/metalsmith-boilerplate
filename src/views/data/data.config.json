@@ -1,17 +1,15 @@
 {
-	"data": {
-		"app": {
-			"global": {
-				"meta": {
-					"description": "description test",
-					"generatorname": "Metalsmith",
-					"generatortitle": "Check out Metalsmith!",
-					"generatorurl": "http://metalsmith.io/",
-					"hostname": "Netlify",
-					"hosttitle": "Learn more about Netlify",
-					"hosturl": "https://netlify.com/",
-					"title": "title test"
-				}
+	"app": {
+		"global": {
+			"meta": {
+				"description": "description test",
+				"generatorname": "Metalsmith",
+				"generatortitle": "Check out Metalsmith!",
+				"generatorurl": "http://metalsmith.io/",
+				"hostname": "Netlify",
+				"hosttitle": "Learn more about Netlify",
+				"hosturl": "https://netlify.com/",
+				"title": "title test"
 			}
 		}
 	}

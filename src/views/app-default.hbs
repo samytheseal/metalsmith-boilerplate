@@ -5,13 +5,13 @@
 
 			<h1>{{page.conent.title}}</h1>
 
-			{{>"components/test" components.component.test content=data.data.app.global.meta}}
-			{{>"components/test" components.component.test.variants.test1test}}
+			{{>"components/test" components.test content=data.app.global.meta}}
+			{{>"components/test" components.test.variants.test1test}}
 			{{>"components/card"}}
 
 			{{{ contents }}}
 
-			{{data.data.app.global.meta.description}}
+			{{data.app.global.meta.description}}
 
 			{{faker.commerce.price}}
 
