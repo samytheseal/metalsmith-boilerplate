@@ -23,7 +23,10 @@ const paths = {
 	},
 	styles: {
 		srcFolder: basePaths.src + '/assets/styles',
-		src: basePaths.src + '/assets/styles/**/*.{css,scss}',
+		src: [
+			basePaths.src + '/assets/styles/*.scss',
+			basePaths.src + '/assets/styles/components/*.scss'
+		],
 		dist: basePaths.dist + '/assets/styles'
 	},
 	viewsStatic: {

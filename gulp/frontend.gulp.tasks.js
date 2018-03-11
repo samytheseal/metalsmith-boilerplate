@@ -46,7 +46,7 @@
 				pathvars.basePaths.src + '/service-worker.js',
 				{
 					staticFileGlobs: [
-						pathvars.basePaths.dist + '/assets/scripts/switch/components/*.js',
+						pathvars.basePaths.dist + '/assets/scripts/client/components/*.js',
 						pathvars.basePaths.dist + '/assets/styles/*-component.css'
 					],
 					stripPrefix: pathvars.basePaths.dist
@@ -343,8 +343,7 @@
 				name: 'start',
 				choices: [
 					'Build frontend for deployment.',
-					'Frontend Dev work.',
-					'I\'m not a Frontend Dev what am I doing here?'
+					'Frontend Dev work.'
 				]
 			}]).then((answers) => {
 				if (answers.start === 'Build frontend for deployment.') {
@@ -370,13 +369,6 @@
 						'f-build',
 						'f-serve',
 						'f-ascii'
-					);
-				}
-				if (answers.start === 'I\'m not a Frontend Dev what am I doing here?') {
-					console.log(
-						'------------------------------------------------------------\n' +
-						'|| Just type \'gulp\' to build the frontend of the website :)\n' +
-						'------------------------------------------------------------'
 					);
 				}
 				done();

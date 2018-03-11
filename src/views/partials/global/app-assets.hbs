@@ -33,4 +33,20 @@
 		});
 	})(3);
 </script>
+<!-- component assets -->
+{{#each component}}
+	{{#if assets.css}}
+		{{#each assets.css}}
+			<link as="style" href="{{this}}" onload="this.onload=null;this.rel='stylesheet'" rel="preload">
+		{{/each}}
+	{{/if}}
+{{/each}}
+{{#each component}}
+	{{#if assets.js}}
+		{{#each assets.js}}
+			<script defer src="{{this}}"></script>
+		{{/each}}
+	{{/if}}
+{{/each}}
+<link as="style" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" onload="this.onload=null;this.rel='stylesheet'" rel="preload">
 <script defer src="//use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
