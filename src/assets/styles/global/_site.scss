@@ -16,7 +16,7 @@ body {
 	opacity: 0;
 	overflow: hidden;
 	transition: opacity timing(5) ease-in;
-	&.jsLoaded {
+	&.js-loaded {
 		opacity: 1;
 	}
 }

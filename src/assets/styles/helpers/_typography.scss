@@ -11,7 +11,11 @@ html {
 }
 body {
 	color: $text-color;
-	font-family: $font-family-base;
+	font-family: $font-family-system;
+	font-display: swap;
+	&.fonts-loaded {
+		font-family: $font-family-base;
+	}
 }
 ::selection {
 	background: $brand-primary;

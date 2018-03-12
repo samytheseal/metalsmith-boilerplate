@@ -6,7 +6,7 @@ module.exports = {
 		app: {
 			scripts: [
 				pathvars.paths.scripts.dist + '/vendor/material-kit.min.js',
-				pathvars.paths.scripts.dist + '/client/components/test.js',
+				pathvars.paths.scripts.dist + '/vendor/fontfaceobserver.js',
 				pathvars.paths.scripts.dist + '/client/master.js'
 			]
 		}

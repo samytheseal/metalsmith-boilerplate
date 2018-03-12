@@ -242,7 +242,7 @@
 			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json');
 			$.metalsmith(__dirname)
 			.metadata({
-				components: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json'),
+				component: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json'),
 				data: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json'),
 				faker: require('faker')
 			})

@@ -1,7 +1,16 @@
 {
     "test": {
+        "assets": {
+            "scripts": [
+                "/assets/scripts/client/components/test.js"
+            ],
+            "styles": [
+
+            ]
+        },
         "class": {
-            "css": "test-class"
+            "css": "test-class",
+            "js": "jsTest"
         },
         "variants": {
             "test1test": {

@@ -1,14 +1,21 @@
+// ---------------------------------------------------------------------
+// || switch / master.js
+// ---------------------------------------------------------------------
+
+
 jQuery(document).ready(function($) {
 
 
-	// ---------------------------------------------------------------------
-	// | critical                                                          |
-	// ---------------------------------------------------------------------
-
 	// add user-agent to html element as data attribute
 	(function userAgent() {
-		var doc = document.documentElement;
-		doc.setAttribute('data-useragent', navigator.userAgent);
+		var uA = navigator.userAgent;
+		document.documentElement.setAttribute('data-useragent', uA);
+		if (uA.indexOf('Edge') >= 0) {
+			document.documentElement.className += ' ms-edge';
+		}
+		if (uA.indexOf('MSIE') >= 0 || uA.indexOf('rv:11') >= 0) {
+			document.documentElement.className += ' ms-explorer';
+		}
 	}());
 
 	// service worker
@@ -24,11 +31,17 @@ jQuery(document).ready(function($) {
 		}
 	}());
 
+	// load fonts
+	(function fontObserver() {
+		var robotoFont = new FontFaceObserver('Roboto');
+		robotoFont.load().then(function() {
+			document.body.className += ' fonts-loaded';
+		}, function() {
+			console.log(robotoFont + ' font is not available');
+		});
+	}());
 
-	// ---------------------------------------------------------------------
-	// | sitewide                                                          |
-	// ---------------------------------------------------------------------
+	console.log('master.js loaded');
 
-	console.log('master.js');
 
 });
