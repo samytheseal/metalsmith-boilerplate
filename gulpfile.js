@@ -23,6 +23,11 @@
 	// default
 	gulp.task('default', (callback) => {
 		process.env.NODE_ENV = 'production';
+		console.log(
+			'------------------------------------------------------------\n' +
+			'|| Building app frontend for environment "'+ process.env.NODE_ENV +'"\n' +
+			'------------------------------------------------------------'
+		);
 		$.runSequence(
 			'f-build',
 		callback);

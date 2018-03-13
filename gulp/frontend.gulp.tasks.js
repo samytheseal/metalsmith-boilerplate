@@ -57,10 +57,9 @@
 		// progressive web app copy
 		gulp.task('f-assets:pwa', () => {
 			return gulp.src(
-				pathvars.basePaths.src + '/_build/*.{js,json}'
+				pathvars.basePaths.src + '/*.{js,json}'
 			)
-			.pipe(gulp.dest(pathvars.basePaths.dist))
-			.pipe(gulp.dest(pathvars.paths.viewsStatic.dist));
+			.pipe(gulp.dest(pathvars.basePaths.dist));
 		});
 
 		// all assets tasks
@@ -103,6 +102,15 @@
 			.pipe(gulp.dest(pathvars.paths.scripts.dist));
 		});
 
+		// optimise js
+		gulp.task('f-scripts:optimise', () => {
+			return gulp.src(
+				pathvars.paths.scripts.dist + '/client/**/*.js'
+			)
+			.pipe($.optimizeJs())
+			.pipe(gulp.dest(pathvars.paths.scripts.dist + '/client'));
+		});
+
 		// js bundles
 		gulp.task('f-scripts:bundle', () => {
 			return gulp.src(
@@ -133,12 +141,14 @@
 				$.runSequence(
 					'f-scripts:lint',
 					'f-scripts:js',
+					'f-scripts:optimise',
 					'f-scripts:bundle',
 				callback);
 			}
 			if (process.env.NODE_ENV === 'production') {
 				$.runSequence(
 					'f-scripts:js',
+					'f-scripts:optimise',
 					'f-scripts:bundle',
 				callback);
 			}
