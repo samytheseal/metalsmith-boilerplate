@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------
-// || switch / master.js
+// || master.js
 // ---------------------------------------------------------------------
 
 
@@ -32,16 +32,19 @@ jQuery(document).ready(function($) {
 	}());
 
 	// load fonts
+	// 
 	(function fontObserver() {
 		var robotoFont = new FontFaceObserver('Roboto');
 		robotoFont.load().then(function() {
 			document.body.className += ' fonts-loaded';
 		}, function() {
-			console.log(robotoFont + ' font is not available');
+			console.log('font is not available');
 		});
 	}());
 
+
 	console.log('master.js loaded');
+	$('body').addClass('js-loaded');
 
 
 });

@@ -46,7 +46,9 @@
 				pathvars.basePaths.src + '/service-worker.js',
 				{
 					staticFileGlobs: [
+						pathvars.basePaths.dist + '/assets/scripts/master-*.js',
 						pathvars.basePaths.dist + '/assets/scripts/client/components/*.js',
+						pathvars.basePaths.dist + '/assets/styles/master.css',
 						pathvars.basePaths.dist + '/assets/styles/*-component.css'
 					],
 					stripPrefix: pathvars.basePaths.dist
@@ -114,20 +116,20 @@
 		// js bundles
 		gulp.task('f-scripts:bundle', () => {
 			return gulp.src(
-				pathvars.paths.scripts.srcFolder + '/scriptsBundle.config.js'
+				pathvars.basePaths.src + '/assets/assets.config.js'
 			)
 			.pipe($.bundleAssets())
 			.pipe($.bundleAssets.results({
-				dest: pathvars.paths.scripts.dist,
-				fileName: 'scriptsBundle.result',
+				dest: pathvars.paths.viewsStatic.srcFolder + '/data',
+				fileName: 'assets.config',
 				pathPrefix: '/assets/scripts/'
 			}))
 			.pipe(gulp.dest(pathvars.paths.scripts.dist)
 				.on('end', () => {
 					if (process.env.NODE_ENV === 'production') {
 						$.del([
-							pathvars.paths.scripts.dist + '/switch/*.*',
-							'!' + pathvars.paths.scripts.dist + '/switch/components'
+							pathvars.paths.scripts.dist + '/client/*.*',
+							'!' + pathvars.paths.scripts.dist + '/client/components'
 						]);
 						$.del(pathvars.paths.scripts.dist + '/vendor');
 					}
@@ -248,10 +250,12 @@
 
 		// static
 		gulp.task('f-views:static', () => {
+			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/assets.config.json');
 			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json');
 			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json');
 			$.metalsmith(__dirname)
 			.metadata({
+				assets: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/assets.config.json'),
 				component: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json'),
 				data: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json'),
 				faker: require('faker')
@@ -287,22 +291,10 @@
 			});
 		});
 
-		// timestamp
-		gulp.task('f-views:timestamp', () => {
-			var timestamp = new Date().toISOString();
-			timestamp = timestamp.replace(/:|\./g, '-');
-			return gulp.src(
-				pathvars.basePaths.dist + '/**/*.html'
-			)
-			.pipe($.replace('!TIMESTAMP!', timestamp))
-			.pipe(gulp.dest(pathvars.basePaths.dist));
-		});
-
 		// all views tasks
 		gulp.task('f-views', (callback) => {
 			$.runSequence(
 				'f-views:static',
-				'f-views:timestamp',
 			callback);
 		});
 
@@ -322,9 +314,9 @@
 		// build frontend for prod
 		gulp.task('f-build', ['f-clean'], (done) => {
 			$.runSequence(
-				'f-views',
 				'f-scripts',
 				'f-styles',
+				'f-views',
 				'f-assets',
 			done);
 		});

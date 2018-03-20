@@ -2,37 +2,15 @@
 	<p>Please <a href="http://enable-javascript.com/" target="_blank" rel="noopener">enable JavaScript</a> to browse this site.</p>
 </noscript>
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="//unpkg.com/popper.js/dist/umd/popper.min.js"></script>
-<script src="//unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.min.js"></script>
+
 <!-- bundles -->
-<script defer>
-	// js bundle
-	(function ajaxScripts(retries) {
-		jQuery.ajax({
-			async: true,
-			cache: false,
-			url: '/assets/scripts/scriptsBundle.result.json'
-		})
-		.done(function(data) {
-			if (data !== undefined && data !== null) {
-				$.each(data, function(i, item) {
-					var script = document.createElement('script');
-					script.src = $(item.scripts).attr('src');
-					document.getElementById('app-container').appendChild(script);
-				});
-				document.body.className += ' js-loaded';
-			}
-		})
-		.fail(function() {
-			console.log('ajax scripts fail: ' + retries);
-			if (retries > 0) {
-				setTimeout(function() {
-					ajaxScripts(--retries);
-				},5000);
-			}
-		});
-	})(3);
-</script>
+{{{assets.master.scripts}}}
+
+<script defer src="//unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+<script defer src="//unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.min.js"></script>
+<link as="style" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" onload="this.onload=null;this.rel='stylesheet'" rel="preload">
+<script defer src="//use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
 <!-- component assets -->
 {{#each component}}
 	{{#if assets.styles}}
@@ -44,9 +22,7 @@
 {{#each component}}
 	{{#if assets.scripts}}
 		{{#each assets.scripts}}
-			<script defer src="{{this}}" type="text/javascript"></script>
+			<script async defer src="{{this}}"></script>
 		{{/each}}
 	{{/if}}
 {{/each}}
-<link as="style" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" onload="this.onload=null;this.rel='stylesheet'" rel="preload">
-<script defer src="//use.fontawesome.com/releases/v5.0.6/js/all.js"></script>

@@ -1,9 +1,7 @@
 /* site */
 
 html {
-	background: url('#{$image-path}/layout/site-loader.gif') no-repeat fixed 50%
-			50%,
-		$grey-darker url('#{$image-path}/layout/site-background.jpg') repeat;
+	background: url("#{$image-path}/layout/site-loader.gif") no-repeat fixed 50% 50%, $grey-darker url("#{$image-path}/layout/site-background.jpg") repeat;
 	min-height: 100vh;
 	overflow-x: hidden;
 	overflow-y: scroll;

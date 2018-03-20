@@ -5,7 +5,7 @@
                 "/assets/scripts/client/components/test.js"
             ],
             "styles": [
-
+                "/assets/styles/test-component.css"
             ]
         },
         "class": {
