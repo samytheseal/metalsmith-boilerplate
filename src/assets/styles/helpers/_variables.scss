@@ -4,13 +4,14 @@
 // layout
 // --------------------------------------------------
 
-// custom media sizes
-$screen-sm-min: 768px;
-$screen-md-min: 1024px;
-$screen-lg-min: 1280px;
-$screen-xs-max: $screen-sm-min - 1;
-$screen-sm-max: $screen-md-min - 1;
-$screen-md-max: $screen-lg-min - 1;
+// breakpoints
+$screen-xs: 0;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1280px;
+$screen-xs-max: $screen-sm - 1;
+$screen-sm-max: $screen-md - 1;
+$screen-md-max: $screen-lg - 1;
 
 // sizes
 $max-width: 2560px;
@@ -157,3 +158,7 @@ $timing-base: 0.1;
 @function timing($timing-multiplier) {
 	@return ($timing-base * $timing-multiplier) + s;
 } // timing(1);
+
+
+// link states
+$interact: "&:focus, &:hover, &:active";

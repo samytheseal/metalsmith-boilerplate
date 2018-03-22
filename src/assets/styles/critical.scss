@@ -1,14 +1,13 @@
+// variables & mixins
+// --------------------------------------------------
+
+@import "helpers/helpers";
+
+
 // reset
 // --------------------------------------------------
 
-@import "reset/reset";
-
-
-// variables, mixins & helpers
-// --------------------------------------------------
-
-@import "helpers/variables";
-@import "helpers/mixins";
+@import "vendor/libraries/material/bootstrap/scss/bootstrap-reboot";
 
 
 // global

@@ -3,7 +3,7 @@
 // ---------------------------------------------------------------------
 
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
 
 	// add user-agent to html element as data attribute
@@ -21,10 +21,10 @@ jQuery(document).ready(function($) {
 	// service worker
 	(function serviceWorker() {
 		if ('serviceWorker' in navigator) {
-			navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+			navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
 				// registration successful
 				console.log('ServiceWorker registration successful with scope: ', registration.scope);
-			}).catch(function(err) {
+			}).catch(function (err) {
 				// registration failed :(
 				console.log('ServiceWorker registration failed: ', err);
 			});
@@ -32,12 +32,11 @@ jQuery(document).ready(function($) {
 	}());
 
 	// load fonts
-	// 
 	(function fontObserver() {
 		var robotoFont = new FontFaceObserver('Roboto');
-		robotoFont.load().then(function() {
+		robotoFont.load().then(function () {
 			document.body.className += ' fonts-loaded';
-		}, function() {
+		}, function () {
 			console.log('font is not available');
 		});
 	}());

@@ -2,46 +2,47 @@
 
 html {
 	background: url("#{$image-path}/layout/site-loader.gif") no-repeat fixed 50% 50%, $grey-darker url("#{$image-path}/layout/site-background.jpg") repeat;
-	min-height: 100vh;
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
 body {
+	background-color: $white;
 	display: flex;
 	flex-direction: column;
-	background-color: $white;
 	min-height: 100vh;
 	opacity: 0;
 	overflow: hidden;
 	transition: opacity timing(5) ease-in;
+	z-index: zindex(ground);
 	&.js-loaded {
 		opacity: 1;
 	}
 }
 
-// desktop old browsers  / no JavaScript
+// desktop old browsers / no JavaScript
 .browser-upgrade,
-noscript {
+.no-script {
 	background: $brand-danger;
 	color: $white;
-	height: 54px;
 	font-size: 18px;
+	height: 54px;
 	left: 0;
 	line-height: 54px;
 	margin: 0;
-	position: static;
+	position: fixed;
 	right: 0;
 	text-align: center;
 	top: 0;
 	z-index: zindex(penthouse);
-	a,
-	a:hover {
+	a {
 		color: $white;
 		text-decoration: underline;
+		#{$interact} {
+			text-decoration: none;
+		}
 	}
 }
-noscript {
+.no-script {
 	bottom: 0;
-	position: fixed;
 	top: auto;
 }

@@ -1,8 +1,9 @@
 ---
-title: home
 description: test
 layout: app-default.hbs
 menu-order: 1
+name: home page
+title: home
 ---
 
 # Homepage

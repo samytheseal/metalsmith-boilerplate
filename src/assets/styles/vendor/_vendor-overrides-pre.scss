@@ -1,24 +1,51 @@
-/* variable overrides */
+/* overrides pre */
 
 
-/*
- * overrides for vendor variables
- *
- * for this to work, variables defined in vendors scss' need to have !default on the end of them
- * other overrides that aren't variables should go into [_overrides.scss]
- *
- */
-
-
-// Bootstrap
+// material bootstrap
 // --------------------------------------------------
 
-// Bootstrap containers
-// $container-md: ($screen-md-min - 30px);
-// $container-lg: ($screen-lg-min - 30px);
+$grid-breakpoints: (
+	xs: $screen-xs,
+	sm: $screen-sm,
+	md: $screen-md,
+	lg: $screen-lg
+);
 
-// Bootstrap hamburger menu
-// $grid-float-breakpoint: $screen-md-min;
+body:after {
+	content: '#{inspect($grid-breakpoints)}';
+	display: none;
+}
 
-// Bootstrap general
-// $navbar-height: 80px;
+$container-max-widths: (
+	sm: 718px,
+	md: 964px,
+	lg: 1220px
+);
+
+
+// breaky
+// --------------------------------------------------
+
+html:before {
+	content: "screen-xs,screen-sm,screen-md,screen-lg";
+	display: none;
+}
+body:before {
+	content: "screen-xs";
+	display: none;
+}
+@media (min-width: $screen-sm) {
+	body:before {
+		content: "screen-sm";
+	}
+}
+@media (min-width: $screen-md) {
+	body:before {
+		content: "screen-md";
+	}
+}
+@media (min-width: $screen-lg) {
+	body:before {
+		content: "screen-lg";
+	}
+}

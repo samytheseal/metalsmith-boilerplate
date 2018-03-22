@@ -1,6 +1,6 @@
 {
   "background_color": "#888888",
-  "description" : "Castle Homemaker centre description.",
+  "description": "Castle Homemaker centre description.",
   "dir": "ltr",
   "display": "standalone",
   "icons": [
@@ -13,7 +13,7 @@
       "sizes": "32x32"
     }
   ],
-  "lang": "English",
+  "lang": "en-AU",
   "name": "Castle Hill Homemaker Centre",
   "orientation": "portrait",
   "scope": "/",

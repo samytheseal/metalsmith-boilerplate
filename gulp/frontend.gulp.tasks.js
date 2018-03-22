@@ -8,7 +8,7 @@
 
 
 	// tasks function
-	module.exports = function(gulp, $) {
+	module.exports = function (gulp, $) {
 
 
 		// ---------------------------------------------------------------------
@@ -20,7 +20,7 @@
 			return gulp.src(
 				pathvars.paths.fonts.src
 			)
-			.pipe(gulp.dest(pathvars.paths.fonts.dist));
+				.pipe(gulp.dest(pathvars.paths.fonts.dist));
 		});
 
 		// images
@@ -28,20 +28,20 @@
 			return gulp.src(
 				pathvars.paths.images.src
 			)
-			// .pipe($.imagemin(
-			// 	[
-			// 		$.imagemin.gifsicle({ interlaced: true }),
-			// 		$.imagemin.jpegtran({ progressive: true }),
-			// 		$.imagemin.optipng({ optimizationLevel: '3' }),
-			// 		$.imagemin.svgo()
-			// 	],
-			// 	{ verbose: true }
-			// ))
-			.pipe(gulp.dest(pathvars.paths.images.dist));
+				// .pipe($.imagemin(
+				// 	[
+				// 		$.imagemin.gifsicle({ interlaced: true }),
+				// 		$.imagemin.jpegtran({ progressive: true }),
+				// 		$.imagemin.optipng({ optimizationLevel: '3' }),
+				// 		$.imagemin.svgo()
+				// 	],
+				// 	{ verbose: true }
+				// ))
+				.pipe(gulp.dest(pathvars.paths.images.dist));
 		});
 
 		// progressive web app service worker
-		gulp.task('f-assets:service-worker', function(callback) {
+		gulp.task('f-assets:service-worker', function (callback) {
 			$.swPrecache.write(
 				pathvars.basePaths.src + '/service-worker.js',
 				{
@@ -61,7 +61,7 @@
 			return gulp.src(
 				pathvars.basePaths.src + '/*.{js,json}'
 			)
-			.pipe(gulp.dest(pathvars.basePaths.dist));
+				.pipe(gulp.dest(pathvars.basePaths.dist));
 		});
 
 		// all assets tasks
@@ -71,7 +71,7 @@
 				'f-assets:images',
 				'f-assets:service-worker',
 				'f-assets:pwa',
-			callback);
+				callback);
 		});
 
 
@@ -84,10 +84,10 @@
 			return gulp.src(
 				pathvars.paths.scripts.srcFolder + '/switch/**/*.js'
 			)
-			.pipe($.eslint())
-			.pipe($.eslint.format())
-			.pipe($.eslint.failAfterError())
-			.on('error', $.notify.onError('JS Error: <%= error.message %>.\nCheck your console.'));
+				.pipe($.eslint())
+				.pipe($.eslint.format())
+				.pipe($.eslint.failAfterError())
+				.on('error', $.notify.onError('JS Error: <%= error.message %>.\nCheck your console.'));
 		});
 
 		// js
@@ -96,12 +96,12 @@
 				pathvars.paths.scripts.srcFolder + '/**/*.js',
 				'!' + pathvars.paths.scripts.srcFolder + '/scriptsBundle.config.js'
 			])
-			.pipe($.if(process.env.NODE_ENV === 'development',
-				$.cached('js')
-			))
-			.pipe($.sourcemaps.init())
-			.pipe($.sourcemaps.write('./'))
-			.pipe(gulp.dest(pathvars.paths.scripts.dist));
+				.pipe($.if(process.env.NODE_ENV === 'development',
+					$.cached('js')
+				))
+				.pipe($.sourcemaps.init())
+				.pipe($.sourcemaps.write('./'))
+				.pipe(gulp.dest(pathvars.paths.scripts.dist));
 		});
 
 		// optimise js
@@ -109,8 +109,8 @@
 			return gulp.src(
 				pathvars.paths.scripts.dist + '/client/**/*.js'
 			)
-			.pipe($.optimizeJs())
-			.pipe(gulp.dest(pathvars.paths.scripts.dist + '/client'));
+				.pipe($.optimizeJs())
+				.pipe(gulp.dest(pathvars.paths.scripts.dist + '/client'));
 		});
 
 		// js bundles
@@ -118,23 +118,23 @@
 			return gulp.src(
 				pathvars.basePaths.src + '/assets/assets.config.js'
 			)
-			.pipe($.bundleAssets())
-			.pipe($.bundleAssets.results({
-				dest: pathvars.paths.viewsStatic.srcFolder + '/data',
-				fileName: 'assets.config',
-				pathPrefix: '/assets/scripts/'
-			}))
-			.pipe(gulp.dest(pathvars.paths.scripts.dist)
-				.on('end', () => {
-					if (process.env.NODE_ENV === 'production') {
-						$.del([
-							pathvars.paths.scripts.dist + '/client/*.*',
-							'!' + pathvars.paths.scripts.dist + '/client/components'
-						]);
-						$.del(pathvars.paths.scripts.dist + '/vendor');
-					}
-				})
-			);
+				.pipe($.bundleAssets())
+				.pipe($.bundleAssets.results({
+					dest: pathvars.paths.viewsStatic.srcFolder + '/data',
+					fileName: 'assets.config',
+					pathPrefix: '/assets/scripts/'
+				}))
+				.pipe(gulp.dest(pathvars.paths.scripts.dist)
+					.on('end', () => {
+						if (process.env.NODE_ENV === 'production') {
+							$.del([
+								pathvars.paths.scripts.dist + '/client/*.*',
+								'!' + pathvars.paths.scripts.dist + '/client/components'
+							]);
+							$.del(pathvars.paths.scripts.dist + '/vendor');
+						}
+					})
+				);
 		});
 
 		// all js tasks
@@ -145,14 +145,14 @@
 					'f-scripts:js',
 					'f-scripts:optimise',
 					'f-scripts:bundle',
-				callback);
+					callback);
 			}
 			if (process.env.NODE_ENV === 'production') {
 				$.runSequence(
 					'f-scripts:js',
 					'f-scripts:optimise',
 					'f-scripts:bundle',
-				callback);
+					callback);
 			}
 		});
 
@@ -168,15 +168,15 @@
 				pathvars.paths.styles.srcFolder + '/**/_*.scss',
 				'!' + pathvars.paths.styles.srcFolder + '/vendor/**/*'
 			])
-			.pipe(styleLint({
-				configFile: '.stylelintrc',
-				failAfterError: false,
-				reporters: [{
-					formatter: 'string',
-					console: true
-				}]
-			})
-			.on('error', $.notify.onError('SCSS Error: <%= error.message %>.\nCheck your console.')));
+				.pipe(styleLint({
+					configFile: '.stylelintrc',
+					failAfterError: false,
+					reporters: [{
+						formatter: 'string',
+						console: true
+					}]
+				})
+					.on('error', $.notify.onError('SCSS Error: <%= error.message %>.\nCheck your console.')));
 		});
 
 		// scss
@@ -189,16 +189,16 @@
 			return gulp.src(
 				pathvars.paths.styles.src
 			)
-			.pipe($.sourcemaps.init())
-			.pipe($.if(process.env.NODE_ENV === 'development',
-				$.sass({outputStyle: 'expanded'})
-			))
-			.pipe($.if(process.env.NODE_ENV === 'production',
-				$.sass({outputStyle: 'compressed'})
-			))
-			.pipe($.postcss(processors))
-			.pipe($.sourcemaps.write('./'))
-			.pipe(gulp.dest(pathvars.paths.styles.dist));
+				.pipe($.sourcemaps.init())
+				.pipe($.if(process.env.NODE_ENV === 'development',
+					$.sass({ outputStyle: 'expanded' })
+				))
+				.pipe($.if(process.env.NODE_ENV === 'production',
+					$.sass({ outputStyle: 'compressed' })
+				))
+				.pipe($.postcss(processors))
+				.pipe($.sourcemaps.write('./'))
+				.pipe(gulp.dest(pathvars.paths.styles.dist));
 		});
 
 		// inline critical css
@@ -206,8 +206,8 @@
 			return gulp.src(
 				pathvars.basePaths.dist + '/**/*.html'
 			)
-			.pipe($.inlineSource())
-			.pipe(gulp.dest(pathvars.basePaths.dist));
+				.pipe($.inlineSource())
+				.pipe(gulp.dest(pathvars.basePaths.dist));
 		});
 
 		// all styles tasks
@@ -216,13 +216,13 @@
 				$.runSequence(
 					'f-styles:lint',
 					'f-styles:scss',
-				callback);
+					callback);
 			}
 			if (process.env.NODE_ENV === 'production') {
 				$.runSequence(
 					'f-styles:scss',
 					'f-styles:inline',
-				callback);
+					callback);
 			}
 		});
 
@@ -234,7 +234,7 @@
 		// handlebars helpers
 		$.handlebars.registerHelper($.handlebarsHelpers($.handlebars));
 		$.handlebars.registerHelper($.handlebarsLayouts($.handlebars));
-		
+
 		$.handlebars.registerHelper('is', function (value, test, options) {
 			if (value === test) {
 				return options.fn(this);
@@ -254,48 +254,53 @@
 			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json');
 			$.decache('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json');
 			$.metalsmith(__dirname)
-			.metadata({
-				assets: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/assets.config.json'),
-				component: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json'),
-				data: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json'),
-				faker: require('faker')
-			})
-			.source('../src/content')
-			.destination('../dist')
-			.clean(false)
-			.use($.metalsmithDrafts())
-			.use($.metalsmithCollections({
-				posts: {
-					pattern: 'posts/*.md',
-					sortBy: 'date',
-					reverse: true
-				},
-				pages: {
-					pattern: '*.md',
-					sortBy: 'menu-order'
-				}
-			}))
-			.use($.metalsmithMarkdown())
-			.use($.metalsmithPermalinks())
-			.use($.metalsmithLayouts({
-				engine: 'handlebars',
-				directory: '../src/views',
-				default: 'app-default.hbs',
-				partials: '../src/views/partials'
-			}))
-			.use($.metalsmithSitemap({
-				hostname: "https://www.test.com"
-			}))
-			.build(function (err) {
-				if (err) throw err;
-			});
+				.metadata({
+					assets: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/assets.config.json'),
+					component: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/components.config.json'),
+					data: require('../' + pathvars.paths.viewsStatic.srcFolder + '/data/data.config.json'),
+					faker: require('faker')
+				})
+				.source('../src/content')
+				.destination('../dist')
+				.clean(false)
+				.use($.metalsmithDrafts())
+				.use($.metalsmithCollections({
+					posts: {
+						pattern: 'posts/*.md',
+						sortBy: 'date',
+						reverse: true
+					},
+					pages: {
+						pattern: '*.md',
+						sortBy: 'menu-order'
+					}
+				}))
+				.use($.metalsmithMarkdown())
+				.use($.metalsmithPermalinks())
+				.use($.metalsmithLayouts({
+					engine: 'handlebars',
+					directory: '../src/views',
+					default: 'app-default.hbs',
+					partials: '../src/views/partials'
+				}))
+				.use($.metalsmithHtmlMinifier({
+					minifierOptions: {
+						collapseWhitespace: true
+					}
+				}))
+				.use($.metalsmithSitemap({
+					hostname: "https://www.test.com"
+				}))
+				.build(function (err) {
+					if (err) throw err;
+				});
 		});
 
 		// all views tasks
 		gulp.task('f-views', (callback) => {
 			$.runSequence(
 				'f-views:static',
-			callback);
+				callback);
 		});
 
 
@@ -308,7 +313,7 @@
 			return gulp.src(
 				'./gulp/frontend.ascii.txt'
 			)
-			.pipe($.cat());
+				.pipe($.cat());
 		});
 
 		// build frontend for prod
@@ -318,7 +323,7 @@
 				'f-styles',
 				'f-views',
 				'f-assets',
-			done);
+				done);
 		});
 
 		// clean delete
@@ -344,26 +349,15 @@
 				message: 'Pick a frontend task!',
 				name: 'start',
 				choices: [
-					'Build frontend for deployment.',
-					'Frontend Dev work.'
+					'Frontend Dev work.',
+					'Build frontend for deployment.'
 				]
 			}]).then((answers) => {
-				if (answers.start === 'Build frontend for deployment.') {
-					process.env.NODE_ENV = 'production';
-					console.log(
-						'------------------------------------------------------------\n' +
-						'|| Building app frontend for environment "'+ process.env.NODE_ENV +'"\n' +
-						'------------------------------------------------------------'
-					);
-					$.runSequence(
-						'f-build'
-					);
-				}
 				if (answers.start === 'Frontend Dev work.') {
 					process.env.NODE_ENV = 'development';
 					console.log(
 						'------------------------------------------------------------\n' +
-						'|| Building app frontend for environment "'+ process.env.NODE_ENV +'"\n' +
+						'|| Building app frontend for environment "' + process.env.NODE_ENV + '"\n' +
 						'------------------------------------------------------------'
 					);
 					$.runSequence(
@@ -371,6 +365,17 @@
 						'f-build',
 						'f-serve',
 						'f-ascii'
+					);
+				}
+				if (answers.start === 'Build frontend for deployment.') {
+					process.env.NODE_ENV = 'production';
+					console.log(
+						'------------------------------------------------------------\n' +
+						'|| Building app frontend for environment "' + process.env.NODE_ENV + '"\n' +
+						'------------------------------------------------------------'
+					);
+					$.runSequence(
+						'f-build'
 					);
 				}
 				done();

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html dir="ltr" lang="en-AU">
 
 	<head>
 		{{>"global/app-head"}}
 	</head>
 
-	<body id="{{route.id}}">
+	<body id="{{dashcase name}}">
 
 		<header id="app-header">
 			<section class="container">
@@ -16,8 +16,7 @@
 
 		<main id="app-main" role="main">
 			<article id="app-article">
-				{{#block "app-content"}}
-				{{/block}}
+				{{#block "app-content"}}{{/block}}
 			</article>
 		</main>
 
@@ -28,7 +27,7 @@
 		</footer>
 
 		<section id="app-container">
-			{{>"global/app-browser-upgrade"}}
+			{{>"global/app-warning"}}
 			{{>"global/app-assets"}}
 		</section>
 
