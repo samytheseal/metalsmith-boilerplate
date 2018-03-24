@@ -1,4 +1,30 @@
 /* overrides post */
 
-// material bootstrap
+
+// breaky
 // --------------------------------------------------
+
+html:before {
+	content: "xs,sm,md,lg";
+	display: none;
+}
+body:before {
+	content: "screen-xs";
+	display: none;
+}
+
+@media (min-width: $sm) {
+	body:before {
+		content: "sm";
+	}
+}
+@media (min-width: $md) {
+	body:before {
+		content: "md";
+	}
+}
+@media (min-width: $lg) {
+	body:before {
+		content: "lg";
+	}
+}

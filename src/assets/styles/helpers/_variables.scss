@@ -5,13 +5,10 @@
 // --------------------------------------------------
 
 // breakpoints
-$screen-xs: 0;
-$screen-sm: 768px;
-$screen-md: 1024px;
-$screen-lg: 1280px;
-$screen-xs-max: $screen-sm - 1;
-$screen-sm-max: $screen-md - 1;
-$screen-md-max: $screen-lg - 1;
+$xs: 0;
+$sm: 768;
+$md: 1024;
+$lg: 1280;
 
 // sizes
 $max-width: 2560px;
@@ -20,7 +17,7 @@ $header-height-large: 128px;
 $footer-height: 128px;
 
 // gutter
-$gutter-base: 12;
+$gutter-base: 16;
 @function gutter-size($gutter-multiplier) {
 	@return ($gutter-base * $gutter-multiplier) * 1px;
 }
@@ -103,22 +100,11 @@ $colour-Youtube: #ae2b25;
 // typography
 // --------------------------------------------------
 
-$font-family-base: "Roboto";
-$font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$headings-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$brand-font-family: $headings-font-family;
-
 // sizing
-$font-size-base: 1rem;
-$text-size-small: 87.5%;
+// $text-size-small: 87.5%;
 $text-size-xsmall: 75%;
-$text-size-large: 112.5%;
+// $text-size-large: 112.5%;
 $text-size-xlarge: 125%;
-
-// line height
-$line-height-small: 1.2;
-$line-height-base: 1.5;
-$line-height-headings: 1.2;
 
 // text font weight
 $text-weight-thin: 100;
@@ -141,6 +127,15 @@ $headings-weight-semi-bold: 600;
 $headings-weight-bold: bold;
 $headings-weight-extra-bold: 800;
 $headings-weight-black: 900;
+
+// type scaling
+$font-scale-min: 16;
+$font-scale-max: 20;
+$scale-min-width: $sm;
+$scale-max-width: $lg;
+$text-size-base: 1rem;
+$text-size-large: 1.1rem;
+$text-size-small: 0.82rem;
 
 
 // paths

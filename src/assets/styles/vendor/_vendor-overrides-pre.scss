@@ -4,11 +4,16 @@
 // material bootstrap
 // --------------------------------------------------
 
+
+// grid
+
+$grid-gutter-width: gutter-size(2);
+
 $grid-breakpoints: (
-	xs: $screen-xs,
-	sm: $screen-sm,
-	md: $screen-md,
-	lg: $screen-lg
+	xs: $xs,
+	sm: $sm * 1px,
+	md: $md * 1px,
+	lg: $lg * 1px
 );
 
 body:after {
@@ -17,35 +22,17 @@ body:after {
 }
 
 $container-max-widths: (
-	sm: 718px,
-	md: 964px,
-	lg: 1220px
+	sm: $sm * 1px,
+	md: $md * 1px,
+	lg: $lg * 1px
 );
 
 
-// breaky
-// --------------------------------------------------
+// typography
 
-html:before {
-	content: "screen-xs,screen-sm,screen-md,screen-lg";
-	display: none;
-}
-body:before {
-	content: "screen-xs";
-	display: none;
-}
-@media (min-width: $screen-sm) {
-	body:before {
-		content: "screen-sm";
-	}
-}
-@media (min-width: $screen-md) {
-	body:before {
-		content: "screen-md";
-	}
-}
-@media (min-width: $screen-lg) {
-	body:before {
-		content: "screen-lg";
-	}
-}
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-sans-serif: "Roboto";
+$font-size-base: 1rem;
+$line-height-sm: 1.2;
+$headings-line-height: $line-height-sm;
+

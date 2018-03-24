@@ -1,7 +1,7 @@
-// variables & mixins
+// helpers
 // --------------------------------------------------
 
-@import "helpers/helpers";
+@import "helpers/variables";
 
 
 // vendor
@@ -10,6 +10,12 @@
 @import "vendor/vendor-overrides-pre";
 @import "vendor/libraries/material/material-kit-pro";
 @import "vendor/vendor-overrides-post";
+
+
+// typography
+// --------------------------------------------------
+
+@import "helpers/typography";
 
 
 // sections

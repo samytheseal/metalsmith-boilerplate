@@ -34,7 +34,7 @@ jQuery(document).ready(function ($) {
 	// load fonts
 	(function fontObserver() {
 		var robotoFont = new FontFaceObserver('Roboto');
-		robotoFont.load().then(function () {
+		robotoFont.load(null, 5000).then(function () {
 			document.body.className += ' fonts-loaded';
 		}, function () {
 			console.log('font is not available');
