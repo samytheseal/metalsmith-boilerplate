@@ -2,10 +2,7 @@
 
 
 main {
-
-	background: $white;
 	flex-grow: 1;
 	padding: gutter-size(4) 0;
 	z-index: zindex(ground);
-	transition: all 1s;
 }

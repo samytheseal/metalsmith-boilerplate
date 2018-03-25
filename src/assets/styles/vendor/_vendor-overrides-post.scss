@@ -9,21 +9,20 @@ html:before {
 	display: none;
 }
 body:before {
-	content: "screen-xs";
+	content: "xs";
 	display: none;
 }
-
-@media (min-width: $sm) {
+@include media-breakpoint-up(sm) {
 	body:before {
 		content: "sm";
 	}
 }
-@media (min-width: $md) {
+@include media-breakpoint-up(md) {
 	body:before {
 		content: "md";
 	}
 }
-@media (min-width: $lg) {
+@include media-breakpoint-up(lg) {
 	body:before {
 		content: "lg";
 	}

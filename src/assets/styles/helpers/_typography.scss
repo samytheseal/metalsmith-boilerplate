@@ -1,40 +1,18 @@
 /* typography */
 
 
-// scalable type
-// --------------------------------------------------
-
-// https://madebymike.com.au/writing/precise-control-responsive-typography/
-
-:root {
-	font-size: $gutter-base * 1px;
-}
-
-@media (min-width: #{$scale-min-width}px) and (max-width: #{$scale-max-width}px) {
-	:root {
-		font-size: calc( #{$font-scale-min}px + (#{$font-scale-max} - #{$font-scale-min}) * ( (100vw - #{$scale-min-width}px) / ( #{$scale-max-width} - #{$scale-min-width}) ));
-	}
-}
-
-@media (min-width: #{$scale-max-width}px) {
-	:root {
-		font-size: #{$font-scale-max}px;
-	}
-}
-
-
 // defaults
 // --------------------------------------------------
 
 html {
-	// font-size: $font-size-base;
-	font-variant-ligatures: no-common-ligatures;
+	@include interpolate(font-size, $sm * 1px, $lg * 1px, $font-scale-min, $font-scale-max);
 	line-height: $line-height-base;
 }
 body {
 	color: $text-color;
 	font-display: swap;
 	font-family: $font-family-base;
+	font-variant-ligatures: no-common-ligatures;
 	&.fonts-loaded {
 		font-family: $font-family-sans-serif;
 	}
@@ -68,8 +46,8 @@ h3,
 h2,
 h1 {
 	color: $headings-color;
-	font-family: $headings-font-family;
-	font-weight: $headings-weight-normal;
+	font-family: $font-family-sans-serif;
+	font-weight: $headings-font-weight;
 	line-height: $headings-line-height;
 	margin: 0 0 gutter-size(2);
 }
@@ -103,11 +81,12 @@ h1 {
 // --------------------------------------------------
 
 p {
-	margin-bottom: gutter-size(2);
+	font-size: inherit;
+	margin: 0 0 gutter-size(1.5);
 }
 
 ol,
 ul,
 dl {
-	margin-bottom: gutter-size(2);
+	margin: 0 0 gutter-size(1.5);
 }
