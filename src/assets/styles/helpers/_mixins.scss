@@ -3,7 +3,7 @@
 
 // https://www.madebymike.com.au/writing/fluid-type-calc-examples/
 // scalable type
-@mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value) {
+@mixin fluid-type($properties, $min-screen, $max-screen, $min-value, $max-value) {
 	& {
 		@each $property in $properties {
 			#{$property}: $min-value;

@@ -5,7 +5,7 @@
 // --------------------------------------------------
 
 html {
-	@include interpolate(font-size, $sm * 1px, $lg * 1px, $font-scale-min, $font-scale-max);
+	@include fluid-type(font-size, $sm * 1px, $lg * 1px, $font-scale-min, $font-scale-max);
 	line-height: $line-height-base;
 }
 body {
@@ -13,6 +13,7 @@ body {
 	font-display: swap;
 	font-family: $font-family-base;
 	font-variant-ligatures: no-common-ligatures;
+	font-weight: $font-weight-normal;
 	&.fonts-loaded {
 		font-family: $font-family-sans-serif;
 	}
@@ -28,9 +29,7 @@ body {
 
 a {
 	color: $link-color;
-	&:focus,
-	&:hover,
-	&:active {
+	#{$interact} {
 		color: $link-hover-color;
 	}
 }
@@ -51,42 +50,39 @@ h1 {
 	line-height: $headings-line-height;
 	margin: 0 0 gutter-size(2);
 }
-// h6,
-// .h6 {
-// 	font-size: $font-size-base;
-// }
-// h5,
-// .h5 {
-// 	font-size: $font-size-base * 1.125; // 18
-// }
-// h4,
-// .h4 {
-// 	font-size: $font-size-base * 1.25; // 20
-// }
-// h3,
-// .h3 {
-// 	font-size: $font-size-base * 1.5; // 24
-// }
-// h2,
-// .h2 {
-// 	font-size: $font-size-base * 1.875; // 30
-// }
-// h1,
-// .h1 {
-// 	font-size: $font-size-base * 2.25; // 36
-// }
+h6,
+.h6 {
+	font-size: 1rem;
+}
+h5,
+.h5 {
+	font-size: 1.2rem;
+}
+h4,
+.h4 {
+	font-size: 1.44rem;
+}
+h3,
+.h3 {
+	font-size: 1.728rem;
+}
+h2,
+.h2 {
+	font-size: 2.074rem;
+}
+h1,
+.h1 {
+	font-size: 2.488rem;
+}
 
 
 // general
 // --------------------------------------------------
 
-p {
-	font-size: inherit;
-	margin: 0 0 gutter-size(1.5);
-}
-
+dl,
 ol,
-ul,
-dl {
+p,
+ul {
+	font-size: inherit;
 	margin: 0 0 gutter-size(1.5);
 }
