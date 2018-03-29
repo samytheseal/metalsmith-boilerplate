@@ -2,8 +2,8 @@
 
 
 header {
-	background: $white-dark;
-	height: $header-height;
 	position: relative;
+	flex-shrink: 0;
+	background-color: $gray-100;
 	z-index: zindex(level1);
 }

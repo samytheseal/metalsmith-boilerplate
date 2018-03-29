@@ -2,8 +2,9 @@
 
 
 footer {
-	background: $white-dark;
-	height: $footer-height;
 	position: relative;
-	z-index: zindex(level1);
+	flex-shrink: 0;
+	clear: both;
+	background-color: $gray-100;
+	z-index: zindex(ground);
 }

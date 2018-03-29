@@ -116,7 +116,7 @@
 		// js bundles
 		gulp.task('f-scripts:bundle', () => {
 			return gulp.src(
-				pathvars.basePaths.src + '/assets/assets.config.js'
+				pathvars.paths.scripts.srcFolder + '/assets.config.js'
 			)
 				.pipe($.bundleAssets())
 				.pipe($.bundleAssets.results({

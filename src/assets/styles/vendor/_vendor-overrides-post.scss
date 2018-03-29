@@ -1,11 +1,19 @@
 /* overrides post */
 
 
+// material bootstrap
+// --------------------------------------------------
+
+.container {
+	transition: max-width timing(3) ease-in-out;
+}
+
+
 // breaky
 // --------------------------------------------------
 
 html:before {
-	content: "xs,sm,md,lg";
+	content: "xs,sm,md,lg,xl";
 	display: none;
 }
 body:before {
@@ -25,5 +33,10 @@ body:before {
 @include media-breakpoint-up(lg) {
 	body:before {
 		content: "lg";
+	}
+}
+@include media-breakpoint-up(xl) {
+	body:before {
+		content: "xl";
 	}
 }

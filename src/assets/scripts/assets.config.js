@@ -1,9 +1,9 @@
 // path variables
-const pathvars = require('../../gulp/pathvars.js');
+const pathvars = require('../../../gulp/pathvars.js');
 
 module.exports = {
 	bundle: {
-		master: {
+		jsBundle: {
 			scripts: [
 				pathvars.paths.scripts.dist + '/vendor/breaky.js',
 				pathvars.paths.scripts.dist + '/vendor/fontfaceobserver.js',

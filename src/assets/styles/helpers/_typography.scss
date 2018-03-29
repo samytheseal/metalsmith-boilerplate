@@ -5,11 +5,11 @@
 // --------------------------------------------------
 
 html {
-	@include fluid-type(font-size, $sm * 1px, $lg * 1px, $font-scale-min, $font-scale-max);
+	@include fluid-type(font-size, $sm * 1px, $lg * 1px, $font-scale-base, $font-scale-max);
 	line-height: $line-height-base;
 }
 body {
-	color: $text-color;
+	color: $body-color;
 	font-display: swap;
 	font-family: $font-family-base;
 	font-variant-ligatures: no-common-ligatures;
@@ -19,7 +19,7 @@ body {
 	}
 }
 ::selection {
-	background: $brand-primary;
+	background: $primary;
 	color: $white;
 }
 
@@ -29,11 +29,14 @@ body {
 
 a {
 	color: $link-color;
+	transition: color timing(1) ease-in-out;
 	#{$interact} {
 		color: $link-hover-color;
 	}
 }
-
+:link:focus {
+	outline: 1px dotted $primary;
+}
 
 // headings
 // --------------------------------------------------
@@ -44,35 +47,35 @@ h4,
 h3,
 h2,
 h1 {
-	color: $headings-color;
-	font-family: $font-family-sans-serif;
-	font-weight: $headings-font-weight;
-	line-height: $headings-line-height;
 	margin: 0 0 gutter-size(2);
+	color: $headings-color;
+	font-weight: $font-weight-normal;
+	line-height: $headings-line-height;
+	font-family: $headings-font-family;
 }
 h6,
 .h6 {
-	font-size: 1rem;
+	font-size: $ms-1;
 }
 h5,
 .h5 {
-	font-size: 1.2rem;
+	font-size: $ms-2;
 }
 h4,
 .h4 {
-	font-size: 1.44rem;
+	font-size: $ms-3;
 }
 h3,
 .h3 {
-	font-size: 1.728rem;
+	font-size: $ms-4;
 }
 h2,
 .h2 {
-	font-size: 2.074rem;
+	font-size: $ms-5;
 }
 h1,
 .h1 {
-	font-size: 2.488rem;
+	font-size: $ms-6;
 }
 
 
@@ -83,6 +86,7 @@ dl,
 ol,
 p,
 ul {
-	font-size: inherit;
 	margin: 0 0 gutter-size(1.5);
+	font-size: $ms-1;
+	line-height: $line-height-base;
 }

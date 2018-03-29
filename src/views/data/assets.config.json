@@ -1,5 +1,5 @@
 {
-  "master": {
-    "scripts": "<script src='/assets/scripts/master-c1ea644140.js' type='text/javascript'></script>"
+  "jsBundle": {
+    "scripts": "<script src='/assets/scripts/jsBundle-c1ea644140.js' type='text/javascript'></script>"
   }
 }

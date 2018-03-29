@@ -1,9 +1,7 @@
 /* site */
 
 html {
-	background: url("#{$image-path}/layout/site-loader.gif") no-repeat fixed 50% 50%, $grey-darker url("#{$image-path}/layout/site-background.jpg") repeat;
-	overflow-x: hidden;
-	overflow-y: scroll;
+	background: url("#{$image-path}/layout/site-loader.gif") no-repeat fixed 50% 50%, $gray-700 url("#{$image-path}/layout/site-background.jpg") repeat;
 }
 body {
 	background-color: $white;
@@ -11,23 +9,21 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 	opacity: 0;
-	overflow: hidden;
 	transition: opacity timing(5) ease-in;
-	z-index: zindex(ground);
 	&.js-loaded {
 		opacity: 1;
 	}
 }
 
-// desktop old browsers / no JavaScript
+// old ie / no js
 .browser-upgrade,
 .no-script {
-	background: $brand-danger;
+	background-color: $danger;
 	color: $white;
-	font-size: 18px;
-	height: 54px;
+	font-size: $ms-2;
+	height: gutter-size(3);
 	left: 0;
-	line-height: 54px;
+	line-height: gutter-size(3);
 	margin: 0;
 	position: fixed;
 	right: 0;
@@ -38,6 +34,7 @@ body {
 		color: $white;
 		text-decoration: underline;
 		#{$interact} {
+			color: $white;
 			text-decoration: none;
 		}
 	}

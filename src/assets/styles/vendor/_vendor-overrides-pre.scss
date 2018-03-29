@@ -3,37 +3,3 @@
 
 // material bootstrap
 // --------------------------------------------------
-
-
-// grid
-
-$grid-gutter-width: gutter-size(2);
-
-$grid-breakpoints: (
-	xs: $xs,
-	sm: $sm * 1px,
-	md: $md * 1px,
-	lg: $lg * 1px
-);
-
-body:after {
-	content: '#{inspect($grid-breakpoints)}';
-	display: none;
-}
-
-$container-max-widths: (
-	sm: $sm * 1px,
-	md: $md * 1px,
-	lg: $lg * 1px
-);
-
-
-// typography
-
-$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-family-sans-serif: "Roboto";
-$font-family-serif: "Roboto";
-$line-height-sm: 1.2;
-$headings-line-height: $line-height-sm;
-$font-weight-normal: 400;
-$headings-font-weight: $font-weight-normal;
