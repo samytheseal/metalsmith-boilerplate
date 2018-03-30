@@ -19,24 +19,19 @@ body {
 	}
 }
 ::selection {
-	background: $primary;
-	color: $white;
+	background-color: rgba($primary, 0.1);
+	color: $dark;
 }
 
 
 // links
 // --------------------------------------------------
 
-a {
-	color: $link-color;
-	transition: color timing(1) ease-in-out;
-	#{$interact} {
-		color: $link-hover-color;
-	}
+a:link,
+a:visited {
+	@include link;
 }
-:link:focus {
-	outline: 1px dotted $primary;
-}
+
 
 // headings
 // --------------------------------------------------
@@ -83,8 +78,10 @@ h1,
 // --------------------------------------------------
 
 dl,
+form,
 ol,
 p,
+table,
 ul {
 	font-size: $ms-1;
 	line-height: $line-height-base;

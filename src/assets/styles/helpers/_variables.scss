@@ -58,6 +58,8 @@ $primary: #00b9dd;
 $secondary: #00b9dd;
 $dark: darken($primary, 15%);
 $light: lighten($primary, 15%);
+$brand-default: $primary;
+$brand-primary: $primary;
 
 // type
 $body-color: $gray-700;

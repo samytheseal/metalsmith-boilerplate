@@ -31,3 +31,16 @@
 	}
 	@return calc(#{$a*100}vw #{$sign} #{$b});
 }
+
+// links
+@mixin link {
+	color: $link-color;
+	text-decoration: none;
+	transition: color timing(1) ease-in-out;
+	#{$interact} {
+		color: $link-hover-color;
+	}
+	&:focus {
+		outline: 1px dotted $primary;
+	}
+}
