@@ -2,9 +2,9 @@
 
 
 footer {
-	position: relative;
-	flex-shrink: 0;
-	clear: both;
 	background-color: $gray-100;
+	clear: both;
+	flex-shrink: 0;
+	position: relative;
 	z-index: zindex(ground);
 }

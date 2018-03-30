@@ -47,11 +47,11 @@ h4,
 h3,
 h2,
 h1 {
-	margin: 0 0 gutter-size(2);
 	color: $headings-color;
+	font-family: $headings-font-family;
 	font-weight: $font-weight-normal;
 	line-height: $headings-line-height;
-	font-family: $headings-font-family;
+	margin: 0 0 gutter-size(2);
 }
 h6,
 .h6 {
@@ -86,7 +86,7 @@ dl,
 ol,
 p,
 ul {
-	margin: 0 0 gutter-size(1.5);
 	font-size: $ms-1;
 	line-height: $line-height-base;
+	margin: 0 0 gutter-size(1.5);
 }
