@@ -48,15 +48,15 @@ a{
 
 .form-check,
 label{
-    font-size: 14px;
-    line-height: 1.42857;
     color: $checkboxes-text-color;
+    font-size: 14px;
     font-weight: 400;
+    line-height: 1.42857;
 }
 
 .main-raised{
-    margin: -60px 30px 0px;
     border-radius: $border-radius-base * 2;
+    margin: -60px 30px 0px;
     @include shadow-16dp();
 }
 
@@ -86,8 +86,8 @@ label{
     }
     .card-body{
       .input-group{
-        padding-bottom: 7px;
         margin: 27px 0 0 0;
+        padding-bottom: 7px;
       }
     }
   }
@@ -101,11 +101,11 @@ label{
     height: 100vh !important;
   }
   .footer {
-    position: absolute;
-    width: 100%;
     background: transparent;
     bottom: 0;
     color: $white-color;
+    position: absolute;
+    width: 100%;
     z-index: 1;
 
     .copyright a{

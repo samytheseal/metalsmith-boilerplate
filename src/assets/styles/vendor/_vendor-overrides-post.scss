@@ -5,7 +5,7 @@
 // --------------------------------------------------
 
 .container {
-	transition: max-width timing(3) ease-in-out;
+    transition: max-width timing(3) ease-in-out;
 }
 
 
@@ -13,30 +13,30 @@
 // --------------------------------------------------
 
 html:before {
-	content: "xs,sm,md,lg,xl";
-	display: none;
+    content: "xs,sm,md,lg,xl";
+    display: none;
 }
 body:before {
-	content: "xs";
-	display: none;
+    content: "xs";
+    display: none;
 }
 @include media-breakpoint-up(sm) {
-	body:before {
-		content: "sm";
-	}
+    body:before {
+        content: "sm";
+    }
 }
 @include media-breakpoint-up(md) {
-	body:before {
-		content: "md";
-	}
+    body:before {
+        content: "md";
+    }
 }
 @include media-breakpoint-up(lg) {
-	body:before {
-		content: "lg";
-	}
+    body:before {
+        content: "lg";
+    }
 }
 @include media-breakpoint-up(xl) {
-	body:before {
-		content: "xl";
-	}
+    body:before {
+        content: "xl";
+    }
 }

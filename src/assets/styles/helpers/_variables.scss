@@ -7,7 +7,7 @@
 // gutter
 $gutter-base: 16;
 @function gutter-size($gutter-multiplier) {
-	@return ($gutter-base * $gutter-multiplier) * 1px;
+    @return ($gutter-base * $gutter-multiplier) * 1px;
 }
 
 // breakpoints
@@ -20,17 +20,17 @@ $xl: 1536;
 // grid
 $grid-gutter-width: gutter-size(2);
 $grid-breakpoints: (
-	xs: $xs,
-	sm: $sm * 1px,
-	md: $md * 1px,
-	lg: $lg * 1px,
-	xl: $xl * 1px
+    xs: $xs,
+    sm: $sm * 1px,
+    md: $md * 1px,
+    lg: $lg * 1px,
+    xl: $xl * 1px
 );
 $container-max-widths: (
-	sm: $sm * 1px,
-	md: $md * 1px,
-	lg: $lg * 1px,
-	xl: $xl * 1px
+    sm: $sm * 1px,
+    md: $md * 1px,
+    lg: $lg * 1px,
+    xl: $xl * 1px
 );
 
 // sizes
@@ -144,24 +144,24 @@ $interact: "&:focus, &:hover, &:active";
 // timing
 $timing-base: 0.1;
 @function timing($timing-multiplier) {
-	@return ($timing-base * $timing-multiplier) + s;
+    @return ($timing-base * $timing-multiplier) + s;
 } // timing(1);
 
 // z-index
 $zindex: (
-	penthouse: 111111,
-	level5: 11111,
-	level4: 1111,
-	level3: 111,
-	level2: 11,
-	level1: 1,
-	ground: 0,
-	basement: -1,
-	hell: -111111
+    penthouse: 111111,
+    level5: 11111,
+    level4: 1111,
+    level3: 111,
+    level2: 11,
+    level1: 1,
+    ground: 0,
+    basement: -1,
+    hell: -111111
 );
 @function zindex($key) {
-	@if not map-has-key($zindex, $key) {
-		@warn "zindex '#{$key}' not found.";
-	}
-	@return map-get($zindex, $key);
+    @if not map-has-key($zindex, $key) {
+        @warn "zindex '#{$key}' not found.";
+    }
+    @return map-get($zindex, $key);
 } // z-index: zindex(level1);

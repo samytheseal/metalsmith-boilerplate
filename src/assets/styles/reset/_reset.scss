@@ -2,30 +2,29 @@
 
 
 * {
-	appearance: none;
+    appearance: none;
+    &:focus {
+        outline: 0;
+    }
 }
 
 html,
 body {
-	height: 100%;
-	overflow: hidden;
-	z-index: zindex(ground);
+    height: 100%;
+    overflow: hidden;
+    z-index: zindex(ground);
 }
 
 html {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 *,
 *:before,
 *:after {
-	box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 body {
-	-ms-overflow-style: scrollbar;
-	overflow-y: scroll;
-}
-
-:focus {
-	outline: 0;
+    -ms-overflow-style: scrollbar;
+    overflow-y: scroll;
 }

@@ -1,45 +1,45 @@
 /* site */
 
 html {
-	background: url("#{$image-path}/layout/site-loader.gif") no-repeat fixed 50% 50%, $gray-700 url("#{$image-path}/layout/site-background.jpg") repeat;
+    background: url("#{$image-path}/layout/site-loader.gif") no-repeat fixed 50% 50%, $gray-700 url("#{$image-path}/layout/site-background.jpg") repeat;
 }
 body {
-	background-color: $white;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	opacity: 0;
-	transition: opacity timing(5) ease-in;
-	&.js-loaded {
-		opacity: 1;
-	}
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity timing(5) ease-in;
+    &.js-loaded {
+        opacity: 1;
+    }
 }
 
 // old ie / no js
 .browser-upgrade,
 .no-script {
-	background-color: $danger;
-	color: $white;
-	font-size: $ms-2;
-	height: gutter-size(3);
-	left: 0;
-	line-height: gutter-size(3);
-	margin: 0;
-	position: fixed;
-	right: 0;
-	text-align: center;
-	top: 0;
-	z-index: zindex(penthouse);
-	a {
-		color: $white;
-		text-decoration: underline;
-		#{$interact} {
-			color: $white;
-			text-decoration: none;
-		}
-	}
+    background-color: $danger;
+    color: $white;
+    font-size: $ms-2;
+    height: gutter-size(3);
+    left: 0;
+    line-height: gutter-size(3);
+    margin: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: zindex(penthouse);
+    a {
+        color: $white;
+        text-decoration: underline;
+        #{$interact} {
+            color: $white;
+            text-decoration: none;
+        }
+    }
 }
 .no-script {
-	bottom: 0;
-	top: auto;
+    bottom: 0;
+    top: auto;
 }

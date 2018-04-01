@@ -4,43 +4,62 @@
 // https://www.madebymike.com.au/writing/fluid-type-calc-examples/
 // scalable type
 @mixin fluid-type($properties, $min-screen, $max-screen, $min-value, $max-value) {
-	& {
-		@each $property in $properties {
-			#{$property}: $min-value;
-		}
-		@media screen and (min-width: $min-screen) {
-			@each $property in $properties {
-				#{$property}: calc-interpolation($min-screen, $min-value, $max-screen, $max-value);
-			}
-		}
-		@media screen and (min-width: $max-screen) {
-			@each $property in $properties {
-				#{$property}: $max-value;
-			}
-		}
-	}
+    & {
+        @each $property in $properties {
+            #{$property}: $min-value;
+        }
+        @media screen and (min-width: $min-screen) {
+            @each $property in $properties {
+                #{$property}: calc-interpolation($min-screen, $min-value, $max-screen, $max-value);
+            }
+        }
+        @media screen and (min-width: $max-screen) {
+            @each $property in $properties {
+                #{$property}: $max-value;
+            }
+        }
+    }
 }
 // calc interpolation
 @function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
-	$a: ($max-value - $min-value) / ($max-screen - $min-screen);
-	$b: $min-value - $a * $min-screen;
-	$sign: "+";
-	@if ($b < 0) {
-		$sign: "-";
-		$b: abs($b);
-	}
-	@return calc(#{$a*100}vw #{$sign} #{$b});
+    $a: ($max-value - $min-value) / ($max-screen - $min-screen);
+    $b: $min-value - $a * $min-screen;
+    $sign: "+";
+    @if ($b < 0) {
+        $sign: "-";
+        $b: abs($b);
+    }
+    @return calc(#{$a*100}vw #{$sign} #{$b});
 }
 
 // links
 @mixin link {
-	color: $link-color;
-	text-decoration: none;
-	transition: color timing(1) ease-in-out;
-	#{$interact} {
-		color: $link-hover-color;
-	}
-	&:focus {
-		outline: 1px dotted $primary;
-	}
+    color: $link-color;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    transition: color timing(1) ease-in-out;
+    &:before {
+        background-color: $link-color;
+        bottom: -1px;
+        content: "";
+        height: 2px;
+        left: 50%;
+        pointer-events: none;
+        position: absolute;
+        transform: translateX(-50%);
+        transition: all timing(1) ease-in-out;
+        width: 100%;
+    }
+    #{$interact} {
+        color: $link-hover-color;
+        cursor: pointer;
+        &:before {
+            background-color: $link-hover-color;
+            width: 0;
+        }
+    }
+    &:focus {
+        outline: 1px dotted $link-color;
+    }
 }

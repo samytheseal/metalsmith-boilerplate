@@ -1,0 +1,22 @@
+{
+    "env": {
+        "browser": true,
+        "jquery": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "rules": {
+        "no-console": "warn",
+        "no-undef": "warn",
+        "no-unused-vars": "warn",
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "space-before-function-paren": [
+            "warn",
+            "never"
+        ]
+    }
+}

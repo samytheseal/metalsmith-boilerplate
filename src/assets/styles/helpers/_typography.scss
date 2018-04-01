@@ -5,31 +5,49 @@
 // --------------------------------------------------
 
 html {
-	@include fluid-type(font-size, $sm * 1px, $lg * 1px, $font-scale-base, $font-scale-max);
-	line-height: $line-height-base;
+    @include fluid-type(
+        font-size,
+        $sm * 1px,
+        $lg * 1px,
+        $font-scale-base,
+        $font-scale-max
+    );
+    line-height: $line-height-base;
 }
+
 body {
-	color: $body-color;
-	font-display: swap;
-	font-family: $font-family-base;
-	font-variant-ligatures: no-common-ligatures;
-	font-weight: $font-weight-normal;
-	&.fonts-loaded {
-		font-family: $font-family-sans-serif;
-	}
+    color: $body-color;
+    font-display: swap;
+    font-family: $font-family-base;
+    font-variant-ligatures: no-common-ligatures;
+    font-weight: $font-weight-normal;
+    &.fonts-loaded {
+        font-family: $font-family-sans-serif;
+    }
 }
+
 ::selection {
-	background-color: rgba($primary, 0.1);
-	color: $dark;
+    background-color: rgba($primary, 0.1);
+    color: $dark;
 }
 
 
 // links
 // --------------------------------------------------
 
-a:link,
-a:visited {
-	@include link;
+a {
+    color: $body-color;
+    text-decoration: none;
+    #{$interact} {
+        color: $body-color;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    #app-main & {
+        &:not([class]) {
+            @include link;
+        }
+    }
 }
 
 
@@ -42,35 +60,35 @@ h4,
 h3,
 h2,
 h1 {
-	color: $headings-color;
-	font-family: $headings-font-family;
-	font-weight: $font-weight-normal;
-	line-height: $headings-line-height;
-	margin: 0 0 gutter-size(2);
+    color: $headings-color;
+    font-family: $headings-font-family;
+    font-weight: $font-weight-normal;
+    line-height: $headings-line-height;
+    margin: 0 0 gutter-size(2);
 }
 h6,
 .h6 {
-	font-size: $ms-1;
+    font-size: $ms-1;
 }
 h5,
 .h5 {
-	font-size: $ms-2;
+    font-size: $ms-2;
 }
 h4,
 .h4 {
-	font-size: $ms-3;
+    font-size: $ms-3;
 }
 h3,
 .h3 {
-	font-size: $ms-4;
+    font-size: $ms-4;
 }
 h2,
 .h2 {
-	font-size: $ms-5;
+    font-size: $ms-5;
 }
 h1,
 .h1 {
-	font-size: $ms-6;
+    font-size: $ms-6;
 }
 
 
@@ -83,7 +101,7 @@ ol,
 p,
 table,
 ul {
-	font-size: $ms-1;
-	line-height: $line-height-base;
-	margin: 0 0 gutter-size(1.5);
+    font-size: $ms-1;
+    line-height: $line-height-base;
+    margin: 0 0 gutter-size(1.5);
 }

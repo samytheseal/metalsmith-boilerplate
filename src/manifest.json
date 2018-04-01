@@ -1,23 +1,23 @@
 {
-  "background_color": "#888888",
-  "description": "Castle Homemaker centre description.",
-  "dir": "ltr",
-  "display": "standalone",
-  "icons": [
-    {
-      "src": "/assets/images/favicon/apple-touch-icon.png",
-      "sizes": "180x180"
-    },
-    {
-      "src": "/assets/images/favicon/favicon.png",
-      "sizes": "32x32"
-    }
-  ],
-  "lang": "en-AU",
-  "name": "Castle Hill Homemaker Centre",
-  "orientation": "portrait",
-  "scope": "/",
-  "short_name": "Homemaker Centre",
-  "start_url": "/index.html",
-  "theme_color": "#888888"
+    "background_color": "#888888",
+    "description": "Castle Homemaker centre description.",
+    "dir": "ltr",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/assets/images/favicon/apple-touch-icon.png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "/assets/images/favicon/favicon.png",
+            "sizes": "32x32"
+        }
+    ],
+    "lang": "en-AU",
+    "name": "Castle Hill Homemaker Centre",
+    "orientation": "portrait",
+    "scope": "/",
+    "short_name": "Homemaker Centre",
+    "start_url": "/index.html",
+    "theme_color": "#888888"
 }
