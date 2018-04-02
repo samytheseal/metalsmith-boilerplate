@@ -1,7 +1,6 @@
 <meta charset="utf-8">
 <meta content="ie=edge" http-equiv="x-ua-compatible">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<meta content="telephone=no" name="format-detection">
 {{#if title}}
     <title>{{capitalizeAll title}} | {{capitalizeAll data.app.global.meta.title}}</title>
 {{else}}
@@ -13,6 +12,7 @@
     <meta content="{{data.app.global.meta.description}}" name="description">
 {{/if}}
 {{>"global/pwa-meta"}}
+<meta content="telephone=no" name="format-detection">
 <link href="/assets/images/icons/favicon/apple-touch-icon.png" rel="apple-touch-icon">
 <link href="/assets/images/icons/favicon/favicon.png" rel="icon" sizes="32x32" type="image/png">
 <link href="/assets/styles/critical.css" rel="stylesheet" inline>

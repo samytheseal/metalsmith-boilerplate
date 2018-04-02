@@ -3,6 +3,7 @@
 html {
     background: url("#{$image-path}/layout/site-loader.gif") no-repeat fixed 50% 50%, $gray-700 url("#{$image-path}/layout/site-background.jpg") repeat;
 }
+
 body {
     background-color: $white;
     display: flex;
