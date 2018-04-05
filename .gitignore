@@ -1,4 +1,40 @@
-dist/
-node_modules/
-.npm
-.env
+### Bower ###
+
+bower_components
+
+
+### Gulp ###
+
+
+
+
+### Node / NPM ###
+
+node_modules
+package-lock.json
+
+
+### Windows ###
+
+$RECYCLE.BIN/
+*.lnk
+Desktop.ini
+ehthumbs.db
+Thumbs.db
+
+
+### Yarn ###
+
+yarn.lock
+
+
+### Common ###
+
+*.log
+*.map
+
+
+### Application Specific ###
+
+dist
+src/views/data/assets.config.json
