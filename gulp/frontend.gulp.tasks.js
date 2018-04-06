@@ -32,6 +32,7 @@
                     baseSize: 16,
                     common: 'svg-icon',
                     cssFile: 'assets/styles/svg-icons.css',
+                    layout: 'diagonal',
                     preview: {
                         sprite: 'svg-icons.html'
                     },
