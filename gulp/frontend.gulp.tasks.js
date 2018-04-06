@@ -23,11 +23,32 @@
                 .pipe(gulp.dest(pathvars.paths.fonts.dist));
         });
 
+        // svg icons
+        gulp.task('f-assets:icons-svg', () => {
+            return gulp.src(
+                pathvars.paths.images.srcFolder + '/icons/svg/**/*.svg'
+            )
+                .pipe($.svgSprites({
+                    baseSize: 16,
+                    common: 'svg-icon',
+                    cssFile: 'assets/styles/svg-icons.css',
+                    preview: {
+                        sprite: 'svg-icons.html'
+                    },
+                    selector: 'svg-icon--%f',
+                    svg: {
+                        sprite: 'assets/images/icons/svg/svg-icons.svg'
+                    }
+                }))
+                .pipe(gulp.dest(pathvars.basePaths.dist));
+        });
+
         // images
         gulp.task('f-assets:images', () => {
-            return gulp.src(
-                pathvars.paths.images.src
-            )
+            return gulp.src([
+                pathvars.paths.images.srcFolder + '/**/*.*',
+                '!' + pathvars.paths.images.srcFolder + '/icons/svg/**/*.svg'
+            ])
                 // .pipe($.imagemin(
                 // 	[
                 // 		$.imagemin.gifsicle({ interlaced: true }),
@@ -68,6 +89,7 @@
         gulp.task('f-assets', (callback) => {
             $.runSequence(
                 'f-assets:fonts',
+                'f-assets:icons-svg',
                 'f-assets:images',
                 'f-assets:service-worker',
                 'f-assets:pwa',

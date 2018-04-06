@@ -1,43 +1,44 @@
 // project paths
 const basePaths = {
-	src: 'src',
-	dist: 'dist'
+    base: './',
+    dist: 'dist',
+    src: 'src'
 }
 
 // file paths
 const paths = {
-	fonts: {
-		srcFolder: basePaths.src + '/assets/fonts',
-		src: basePaths.src + '/assets/fonts/**/*.*',
-		dist: basePaths.dist + '/assets/fonts'
-	},
-	images: {
-		srcFolder: basePaths.src + '/assets/images',
-		src: basePaths.src + '/assets/images/**/*.*',
-		dist: basePaths.dist + '/assets/images'
-	},
-	scripts: {
-		srcFolder: basePaths.src + '/assets/scripts',
-		src: basePaths.src + '/assets/scripts/**/*.{js,json}',
-		dist: basePaths.dist + '/assets/scripts'
-	},
-	styles: {
-		srcFolder: basePaths.src + '/assets/styles',
-		src: [
-			basePaths.src + '/assets/styles/*.scss',
-			basePaths.src + '/assets/styles/components/*.scss'
-		],
-		dist: basePaths.dist + '/assets/styles'
-	},
-	viewsStatic: {
-		srcFolder: basePaths.src + '/views',
-		src: basePaths.src + '/views/**/*.{hbs,json}',
-		dist: basePaths.dist
-	}
+    fonts: {
+        dist: basePaths.dist + '/assets/fonts',
+        src: basePaths.src + '/assets/fonts/**/*.*',
+        srcFolder: basePaths.src + '/assets/fonts'
+    },
+    images: {
+        dist: basePaths.dist + '/assets/images',
+        src: basePaths.src + '/assets/images/**/*.*',
+        srcFolder: basePaths.src + '/assets/images'
+    },
+    scripts: {
+        dist: basePaths.dist + '/assets/scripts',
+        src: basePaths.src + '/assets/scripts/**/*.{js,json}',
+        srcFolder: basePaths.src + '/assets/scripts'
+    },
+    styles: {
+        dist: basePaths.dist + '/assets/styles',
+        src: [
+            basePaths.src + '/assets/styles/*.scss',
+            basePaths.src + '/assets/styles/components/*.scss'
+        ],
+        srcFolder: basePaths.src + '/assets/styles'
+    },
+    viewsStatic: {
+        dist: basePaths.dist,
+        src: basePaths.src + '/views/**/*.{hbs,json}',
+        srcFolder: basePaths.src + '/views'
+    }
 }
 
 // export paths
 module.exports = {
-	basePaths: basePaths,
-	paths: paths
+    basePaths: basePaths,
+    paths: paths
 }
