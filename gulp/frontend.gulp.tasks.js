@@ -26,29 +26,30 @@
         // svg icons
         gulp.task('f-assets:icons-svg', () => {
             return gulp.src(
-                pathvars.paths.images.srcFolder + '/icons/svg/**/*.svg'
+                pathvars.paths.images.srcFolder + '/icons/svg/icons/**/*.svg'
             )
                 .pipe($.svgSprites({
-                    baseSize: 16,
                     common: 'svg-icon',
-                    cssFile: 'assets/styles/svg-icons.css',
+                    cssFile: 'assets/styles/vendor/libraries/gulp svg sprites/_svg-icons.scss',
                     layout: 'diagonal',
                     preview: {
-                        sprite: 'svg-icons.html'
+                        sprite: false
                     },
                     selector: 'svg-icon--%f',
                     svg: {
-                        sprite: 'assets/images/icons/svg/svg-icons.svg'
+                        sprite: 'assets/images/icons/svg/svg-sprite.svg'
+                    },
+                    templates: {
+                        css: require('fs').readFileSync('src/assets/styles/vendor/libraries/gulp svg sprites/template.scss', 'utf-8')
                     }
                 }))
-                .pipe(gulp.dest(pathvars.basePaths.dist));
+                .pipe(gulp.dest(pathvars.basePaths.src));
         });
 
         // images
         gulp.task('f-assets:images', () => {
             return gulp.src([
-                pathvars.paths.images.srcFolder + '/**/*.*',
-                '!' + pathvars.paths.images.srcFolder + '/icons/svg/**/*.svg'
+                pathvars.paths.images.src
             ])
                 // .pipe($.imagemin(
                 // 	[

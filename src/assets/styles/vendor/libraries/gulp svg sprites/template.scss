@@ -1,0 +1,28 @@
+// common styles for all svg icons
+.<%=common %> {
+    font-size: $ms-0;
+    display: inline-block;
+    max-width: 100%;
+    &:before {
+        background-image: url("#{$image-path}/icons/svg/svg-sprite.svg");
+        background-size: <%= relWidth %>em <%= relHeight %>em;
+        background-repeat: no-repeat;
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+// each icon
+<% _.forEach(svg, function(svgItem) { %>
+.<%=common %>.<%=svgItem.name%> {
+    &:before {
+        background-position: <%= svgItem.relPositionX %>em <%= svgItem.relPositionY %>em;
+        height: <%= svgItem.relHeight %>em;
+        width: <%= svgItem.relWidth %>em;
+    }
+}
+@mixin <%=common %>-<%=svgItem.name%>() {
+    @extend .<%=svgItem.name%>;
+}
+<% }); %>

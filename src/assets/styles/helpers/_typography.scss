@@ -68,27 +68,27 @@ h1 {
 }
 h6,
 .h6 {
-    font-size: $ms-1;
+    font-size: $ms-0;
 }
 h5,
 .h5 {
-    font-size: $ms-2;
+    font-size: $ms-1;
 }
 h4,
 .h4 {
-    font-size: $ms-3;
+    font-size: $ms-2;
 }
 h3,
 .h3 {
-    font-size: $ms-4;
+    font-size: $ms-3;
 }
 h2,
 .h2 {
-    font-size: $ms-5;
+    font-size: $ms-4;
 }
 h1,
 .h1 {
-    font-size: $ms-6;
+    font-size: $ms-5;
 }
 
 
@@ -101,7 +101,7 @@ ol,
 p,
 table,
 ul {
-    font-size: $ms-1;
+    font-size: $ms-0;
     line-height: $line-height-base;
     margin: 0 0 gutter-size(1.5);
 }
