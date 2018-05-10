@@ -39,4 +39,4 @@ yarn.lock
 dist
 src/views/data/assets.config.json
 src/assets/images/icons/svg/svg-sprite.svg
-## src/assets/styles/vendor/libraries/gulp svg sprites/_svg-icons.scss
+src/assets/styles/vendor/libraries/gulp svg sprites/_svg-icons.scss
