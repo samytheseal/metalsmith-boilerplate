@@ -1,0 +1,39 @@
+// common styles for all svg icons
+.svg-icon {
+    font-size: $ms-0;
+    display: inline-block;
+    max-width: 100%;
+    &:before {
+        background-image: url("#{$image-path}/icons/svg/svg-sprite.svg");
+        background-size: 188.2em 188em;
+        background-repeat: no-repeat;
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+// each icon
+
+.svg-icon.svg-icon--chuck-1 {
+    &:before {
+        background-position: 0em 0em;
+        height: 94em;
+        width: 94.1em;
+    }
+}
+@mixin svg-icon-svg-icon--chuck-1() {
+    @extend .svg-icon--chuck-1;
+}
+
+.svg-icon.svg-icon--chuck-2 {
+    &:before {
+        background-position: -94.1em -94em;
+        height: 94em;
+        width: 94.1em;
+    }
+}
+@mixin svg-icon-svg-icon--chuck-2() {
+    @extend .svg-icon--chuck-2;
+}
+

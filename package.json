@@ -49,6 +49,7 @@
     "devDependencies": {
         "autoprefixer": "~7.2.5",
         "browser-sync": "~2.23.5",
+        "cssnano": "^3.10.0",
         "decache": "~4.4.0",
         "del": "~3.0.0",
         "eslint-config-prettier": "~2.9.0",
@@ -81,5 +82,8 @@
     },
     "optionalDependencies": {
         "stylelint": "~9.1.1"
+    },
+    "engines": {
+        "node": "v8.9.4"
     }
 }

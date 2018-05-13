@@ -30,7 +30,7 @@
             )
                 .pipe($.svgSprites({
                     common: 'svg-icon',
-                    cssFile: 'assets/styles/vendor/libraries/gulp svg sprites/_svg-icons.scss',
+                    cssFile: 'assets/styles/vendor/libraries/gulp-svg-sprites/_svg-icons.scss',
                     layout: 'diagonal',
                     preview: {
                         sprite: false
@@ -40,7 +40,7 @@
                         sprite: 'assets/images/icons/svg/svg-sprite.svg'
                     },
                     templates: {
-                        css: require('fs').readFileSync('src/assets/styles/vendor/libraries/gulp svg sprites/template.scss', 'utf-8')
+                        css: require('fs').readFileSync('src/assets/styles/vendor/libraries/gulp-svg-sprites/template.scss', 'utf-8')
                     }
                 }))
                 .pipe(gulp.dest(pathvars.basePaths.src));
@@ -207,7 +207,11 @@
         gulp.task('f-styles:scss', () => {
             var processors = [
                 $.autoprefixer({
-                    cascade: false
+                    cascade: false,
+                    grid: true
+                }),
+                $.cssnano({
+                    preset: 'default'
                 })
             ];
             return gulp.src(
@@ -350,6 +354,27 @@
                 done);
         });
 
+        // check node.js version
+        gulp.task('f-check-node', () => {
+            const curVer = process.version;
+            const pkg = require('../package');
+            const reqVer = pkg.engines.node;
+            if (curVer != reqVer) {
+                console.log(
+                    '------------------------------------------------------------\n' +
+                    '|| WARNING: Your node.js version is incorrect for this app!\n' +
+                    '|| You have "' + curVer + '", this app frontend requires "' + reqVer + '".\n' +
+                    '------------------------------------------------------------'
+                );
+            } else {
+                console.log(
+                    '------------------------------------------------------------\n' +
+                    '|| Node.js version matches app required version - "' + reqVer + '".\n' +
+                    '------------------------------------------------------------'
+                );
+            }
+        });
+
         // clean delete
         gulp.task('f-clean', () => {
             return Promise.all([
@@ -387,6 +412,7 @@
                     $.runSequence(
                         'f-cache',
                         'f-build',
+                        'f-check-node',
                         'f-serve',
                         'f-ascii'
                     );
@@ -399,7 +425,8 @@
                         '------------------------------------------------------------'
                     );
                     $.runSequence(
-                        'f-build'
+                        'f-build',
+                        'f-check-node'
                     );
                 }
                 done();
